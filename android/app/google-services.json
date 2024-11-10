@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "101706926436",
+    "project_id": "tickes-7fdf6",
+    "storage_bucket": "tickes-7fdf6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:101706926436:android:0ebb1a4c9e4c83ffbe1271",
+        "android_client_info": {
+          "package_name": "com.tickes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQHNPucolxVNcEixOGD8oHsONlCGLsXtA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
