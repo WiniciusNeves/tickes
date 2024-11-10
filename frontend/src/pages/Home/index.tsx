@@ -1,18 +1,23 @@
-import React from "react";
-import { Container, Button, Text } from  "./styles"
+// Home.js
+import React from 'react';
+import { Container, GradientButton, ButtonText, ButtonGradient } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
 export default function Home() {
-    const { navigate } = useNavigation();
+    const navigation = useNavigation();
     return (
         <Container>
-            <Button onPress={() => navigate("Register")}>
-                <Text>Registrar</Text>
-            </Button>
-            <Button onPress={() => navigate("Login")}>
-                <Text>Logar</Text>
-            </Button>
+            <GradientButton onPress={() => navigation.navigate('Register')}>
+                <ButtonGradient>
+                    <ButtonText>Registrar</ButtonText>
+                </ButtonGradient>
+            </GradientButton>
+
+            <GradientButton onPress={() => navigation.navigate('Auth')}>
+                <ButtonGradient>
+                    <ButtonText>Entrar</ButtonText>
+                </ButtonGradient>
+            </GradientButton>
         </Container>
     );
 }
-
