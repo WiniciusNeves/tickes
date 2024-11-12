@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, InputContainer, Input, ButtonContainer, Button, ButtonText, Icone } from "./styles";
+import { Container, InputContainer, Input, ButtonContainer, Button, ButtonText,  } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
 export default function Auth() {
@@ -10,7 +10,7 @@ export default function Auth() {
     return (
         <Container>
             <InputContainer>
-                <Icone name="user"/>
+            
                 <Input
                     value={email}
                     onChangeText={(text) => setEmail(text)}
@@ -23,7 +23,7 @@ export default function Auth() {
             
 
             <InputContainer>
-                <Icone name="lock"  />
+
                 <Input
                     value={password}
                     onChangeText={(text) => setPassword(text)}

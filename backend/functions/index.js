@@ -1,19 +1,20 @@
-/**
- * Import function triggers from their respective submodules:
- *
- * const {onCall} = require("firebase-functions/v2/https");
- * const {onDocumentWritten} = require("firebase-functions/v2/firestore");
- *
- * See a full list of supported triggers at https://firebase.google.com/docs/functions
- */
+const { onRequest } = require('firebase-functions/v2/https');
+const express = require('express');
+const admin = require('firebase-admin');
 
-const {onRequest} = require("firebase-functions/v2/https");
-const logger = require("firebase-functions/logger");
+// Inicialize o Firebase Admin
+if (!admin.apps.length) {
+  admin.initializeApp();
+}
 
-// Create and deploy your first functions
-// https://firebase.google.com/docs/functions/get-started
+const app = express();
+app.use(express.json()); // Certifique-se de que o JSON é interpretado
 
-// exports.helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+// Importe o roteador de tickets
+const ticketRoutes = require('./routes/ticketRoutes.js');
+
+// Use o roteador
+app.use('/tickets', ticketRoutes);
+
+// Exporte a função Firebase
+exports.api = onRequest(app);
