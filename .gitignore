@@ -77,8 +77,3 @@ yarn.lock
 !.yarn/versions
 
 
-#firebase
-**/.firebase
-*.log
-# Expo
-.expo
