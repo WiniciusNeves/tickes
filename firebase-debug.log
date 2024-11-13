@@ -1,0 +1,1206 @@
+[debug] [2024-11-12T22:50:17.115Z] ----------------------------------------------------------------------
+[debug] [2024-11-12T22:50:17.117Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Winic\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2024-11-12T22:50:17.118Z] CLI Version:   13.24.2
+[debug] [2024-11-12T22:50:17.118Z] Platform:      win32
+[debug] [2024-11-12T22:50:17.118Z] Node Version:  v18.20.4
+[debug] [2024-11-12T22:50:17.119Z] Time:          Tue Nov 12 2024 19:50:17 GMT-0300 (Horário Padrão de Brasília)
+[debug] [2024-11-12T22:50:17.120Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-11-12T22:50:17.245Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-11-12T22:50:17.245Z] > authorizing via signed-in user (winiciusdasilvaneves@gmail.com)
+[debug] [2024-11-12T22:50:17.356Z] openjdk version "11.0.25" 2024-10-15
+OpenJDK Runtime Environment Temurin-11.0.25+9 (build 11.0.25+9)
+OpenJDK 64-Bit Server VM Temurin-11.0.25+9 (build 11.0.25+9, mixed mode)
+
+[debug] [2024-11-12T22:50:17.369Z] Parsed Java major version: 11
+[info] i  emulators: Starting emulators: functions, firestore, extensions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions, firestore, extensions"}}
+[debug] [2024-11-12T22:50:17.372Z] Checked if tokens are valid: true, expires at: 1731454278146
+[debug] [2024-11-12T22:50:17.372Z] Checked if tokens are valid: true, expires at: 1731454278146
+[debug] [2024-11-12T22:50:17.374Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/tickes-7fdf6 [none]
+[debug] [2024-11-12T22:50:17.860Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/tickes-7fdf6 200
+[debug] [2024-11-12T22:50:17.861Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/tickes-7fdf6 {"projectId":"tickes-7fdf6","projectNumber":"101706926436","displayName":"tickes","name":"projects/tickes-7fdf6","resources":{"hostingSite":"tickes-7fdf6"},"state":"ACTIVE","etag":"1_7c13a87f-9b81-426e-965c-69b86b7c4cf3"}
+[debug] [2024-11-12T22:50:17.875Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-12T22:50:17.875Z] [firestore] Firestore Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-12T22:50:17.875Z] [firestore.websocket] websocket server for firestore only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-12T22:50:17.875Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2024-11-12T22:50:17.881Z] [hub] writing locator at C:\Users\Winic\AppData\Local\Temp\hub-tickes-7fdf6.json
+[debug] [2024-11-12T22:50:17.891Z] [Extensions] Started Extensions emulator, this is a noop.
+[debug] [2024-11-12T22:50:17.896Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-12T22:50:17.896Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-12T22:50:17.896Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-12T22:50:17.896Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, database, hosting, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, database, hosting, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2024-11-12T22:50:17.900Z] defaultcredentials: writing to file C:\Users\Winic\AppData\Roaming\firebase\winiciusdasilvaneves_gmail_com_application_default_credentials.json
+[debug] [2024-11-12T22:50:17.902Z] Setting GAC to C:\Users\Winic\AppData\Roaming\firebase\winiciusdasilvaneves_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\Winic\\AppData\\Roaming\\firebase\\winiciusdasilvaneves_gmail_com_application_default_credentials.json"}}
+[debug] [2024-11-12T22:50:17.902Z] Checked if tokens are valid: true, expires at: 1731454278146
+[debug] [2024-11-12T22:50:17.903Z] Checked if tokens are valid: true, expires at: 1731454278146
+[debug] [2024-11-12T22:50:17.903Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/tickes-7fdf6/adminSdkConfig [none]
+[debug] [2024-11-12T22:50:18.333Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/tickes-7fdf6/adminSdkConfig 200
+[debug] [2024-11-12T22:50:18.333Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/tickes-7fdf6/adminSdkConfig {"projectId":"tickes-7fdf6","storageBucket":"tickes-7fdf6.firebasestorage.app"}
+[debug] [2024-11-12T22:50:18.364Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2024-11-12T22:50:18.364Z] Ignoring unsupported arg: single_project_mode_error {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: single_project_mode_error"}}
+[debug] [2024-11-12T22:50:18.364Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","C:\\Users\\Winic\\.cache\\firebase\\emulators\\cloud-firestore-emulator-v1.19.8.jar","--host","127.0.0.1","--port",8080,"--websocket_port",9150,"--project_id","tickes-7fdf6","--rules","C:\\Users\\Winic\\Desktop\\tickes\\firestore.rules","--single_project_mode",true,"--functions_emulator","127.0.0.1:5001"],"optionalArgs":["port","webchannel_port","host","rules","websocket_port","functions_emulator","seed_from_export","project_id","single_project_mode"],"joinArgs":false,"shell":false,"port":8080} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\Winic\\\\.cache\\\\firebase\\\\emulators\\\\cloud-firestore-emulator-v1.19.8.jar\",\"--host\",\"127.0.0.1\",\"--port\",8080,\"--websocket_port\",9150,\"--project_id\",\"tickes-7fdf6\",\"--rules\",\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\firestore.rules\",\"--single_project_mode\",true,\"--functions_emulator\",\"127.0.0.1:5001\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"websocket_port\",\"functions_emulator\",\"seed_from_export\",\"project_id\",\"single_project_mode\"],\"joinArgs\":false,\"shell\":false,\"port\":8080}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[debug] [2024-11-12T22:50:20.365Z] Nov 12, 2024 7:50:20 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start
+INFO: Started WebSocket server on ws://127.0.0.1:9150
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 7:50:20 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start\r\nINFO: Started WebSocket server on ws://127.0.0.1:9150\r\n"}}
+[debug] [2024-11-12T22:50:20.404Z] API endpoint: http://127.0.0.1:8080
+ {"metadata":{"emulator":{"name":"firestore"},"message":"API endpoint: http://127.0.0.1:8080\n"}}
+[debug] [2024-11-12T22:50:20.404Z] If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:
+
+   export FIRESTORE_EMULATOR_HOST=127.0.0.1:8080
+
+If you are running a Firestore in Datastore Mode project, run:
+
+   export DATASTORE_EMULATOR_HOST=127.0.0.1:8080
+
+Note: Support for Datastore Mode is in preview. If you encounter any bugs please file at https://github.com/firebase/firebase-tools/issues.
+Dev App Server is now running.
+
+ {"metadata":{"emulator":{"name":"firestore"},"message":"If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:\r\n\n   export FIRESTORE_EMULATOR_HOST=127.0.0.1:8080\n\nIf you are running a Firestore in Datastore Mode project, run:\r\n\n   export DATASTORE_EMULATOR_HOST=127.0.0.1:8080\n\nNote: Support for Datastore Mode is in preview. If you encounter any bugs please file at https://github.com/firebase/firebase-tools/issues.\r\nDev App Server is now running.\n\r\n"}}
+[info] +  firestore: Firestore Emulator UI websocket is running on 9150. {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator UI websocket is running on 9150."}}
+[debug] [2024-11-12T22:50:20.618Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2024-11-12T22:50:20.619Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2024-11-12T22:50:20.619Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\Winic\\.cache\\firebase\\emulators\\ui-v1.14.0\\server\\server.mjs"],"optionalArgs":[],"joinArgs":false,"shell":false,"port":4000} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\Winic\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.14.0\\\\server\\\\server.mjs\"],\"optionalArgs\":[],\"joinArgs\":false,\"shell\":false,\"port\":4000}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2024-11-12T22:50:20.816Z] Nov 12, 2024 7:50:20 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel
+INFO: Connected to new websocket client
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 7:50:20 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel\r\nINFO: Connected to new websocket client\r\n"}}
+[debug] [2024-11-12T22:50:20.849Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[debug] [2024-11-12T22:50:20.849Z] Web / API server started at ::1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
+[debug] [2024-11-12T22:50:20.920Z] Nov 12, 2024 7:50:20 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler channelClosed
+INFO: Websocket client disconnected
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 7:50:20 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler channelClosed\r\nINFO: Websocket client disconnected\r\n"}}
+[debug] [2024-11-12T22:50:20.922Z] Nov 12, 2024 7:50:20 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel
+INFO: Connected to new websocket client
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 7:50:20 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel\r\nINFO: Connected to new websocket client\r\n"}}
+[debug] [2024-11-12T22:50:20.945Z] Nov 12, 2024 7:50:20 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 7:50:20 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T22:50:20.959Z] Nov 12, 2024 7:50:20 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 12, 2024 7:50:20 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 7:50:20 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\nNov 12, 2024 7:50:20 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T22:50:21.045Z] [Extensions] Connecting Extensions emulator, this is a noop.
+[info] i  functions: Watching "C:\Users\Winic\Desktop\tickes\backend\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\" for Cloud Functions..."}}
+[debug] [2024-11-12T22:50:21.079Z] Validating nodejs source
+[debug] [2024-11-12T22:50:22.700Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-11-12T22:50:22.700Z] Building nodejs source
+[debug] [2024-11-12T22:50:22.701Z] Failed to find version of module node: reached end of search path C:\Users\Winic\Desktop\tickes\backend\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2024-11-12T22:50:22.703Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-11-12T22:50:22.714Z] Found firebase-functions binary at 'C:\Users\Winic\Desktop\tickes\backend\functions\node_modules\.bin\firebase-functions'
+[debug] [2024-11-12T22:50:22.724Z] Nov 12, 2024 7:50:21 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+Nov 12, 2024 7:50:22 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 12, 2024 7:50:22 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 12, 2024 7:50:22 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 7:50:21 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected HTTP/2 connection.\r\nNov 12, 2024 7:50:22 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\nNov 12, 2024 7:50:22 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\nNov 12, 2024 7:50:22 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[info] Serving at port 8793
+
+[debug] [2024-11-12T22:50:23.243Z] Got response from /__/functions.yaml {"endpoints":{"api":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2024-11-12T22:50:23.276Z] defaultcredentials: writing to file C:\Users\Winic\AppData\Roaming\firebase\winiciusdasilvaneves_gmail_com_application_default_credentials.json
+[debug] [2024-11-12T22:50:23.277Z] Setting GAC to C:\Users\Winic\AppData\Roaming\firebase\winiciusdasilvaneves_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\Winic\\AppData\\Roaming\\firebase\\winiciusdasilvaneves_gmail_com_application_default_credentials.json"}}
+[info] +  functions: Loaded functions definitions from source: api. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: api."}}
+[info] +  functions[us-central1-api]: http function initialized (http://127.0.0.1:5001/tickes-7fdf6/us-central1/api). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://127.0.0.1:5001/tickes-7fdf6/us-central1/api)."}}
+[debug] [2024-11-12T22:50:23.284Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: connect ECONNREFUSED ::1:40001. If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────┬────────────────┬──────────────────────────────────┐
+│ Emulator   │ Host:Port      │ View in Emulator UI              │
+├────────────┼────────────────┼──────────────────────────────────┤
+│ Functions  │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions  │
+├────────────┼────────────────┼──────────────────────────────────┤
+│ Firestore  │ 127.0.0.1:8080 │ http://127.0.0.1:4000/firestore  │
+├────────────┼────────────────┼──────────────────────────────────┤
+│ Extensions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/extensions │
+└────────────┴────────────────┴──────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500, 9150
+┌─────────────────────────┬───────────────┬─────────────────────┐
+│ Extension Instance Name │ Extension Ref │ View in Emulator UI │
+└─────────────────────────┴───────────────┴─────────────────────┘
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2024-11-12T22:50:32.346Z] [work-queue] {"queuedWork":["/tickes-7fdf6/us-central1/api/tickets/createTicket-2024-11-12T22:50:32.346Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-12T22:50:32.347Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/tickes-7fdf6/us-central1/api/tickets/createTicket-2024-11-12T22:50:32.346Z"],"workRunningCount":1}
+[debug] [2024-11-12T22:50:32.347Z] Accepted request POST /tickes-7fdf6/us-central1/api/tickets/createTicket --> us-central1-api
+[debug] [2024-11-12T22:50:32.349Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-11-12T22:50:32.349Z] [functions] Got req.url=/tickes-7fdf6/us-central1/api/tickets/createTicket, mapping to path=/tickets/createTicket {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/tickes-7fdf6/us-central1/api/tickets/createTicket, mapping to path=/tickets/createTicket"}}
+[debug] [2024-11-12T22:50:32.361Z] [worker-pool] addWorker(us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-api)"}}
+[debug] [2024-11-12T22:50:32.362Z] [worker-pool] Adding worker with key us-central1-api, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-api, total=1"}}
+[debug] [2024-11-12T22:50:33.885Z] [runtime-status] [9572] Resolved module firebase-admin {"declared":true,"installed":true,"version":"12.7.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [9572] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"12.7.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2024-11-12T22:50:33.887Z] [runtime-status] [9572] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [9572] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-12T22:50:33.888Z] [runtime-status] [9572] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [9572] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2024-11-12T22:50:33.889Z] [runtime-status] [9572] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [9572] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-12T22:50:34.206Z] [runtime-status] [9572] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [9572] Checked functions.config() {\"config\":{}}"}}
+[debug] [2024-11-12T22:50:34.206Z] [runtime-status] [9572] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [9572] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}}"}}
+[debug] [2024-11-12T22:50:34.207Z] [runtime-status] [9572] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [9572] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-12T22:50:34.211Z] [runtime-status] [9572] Resolved module firebase-admin {"declared":true,"installed":true,"version":"12.7.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [9572] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"12.7.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2024-11-12T22:50:34.213Z] [runtime-status] [9572] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [9572] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-12T22:50:34.214Z] [runtime-status] [9572] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"12.7.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [9572] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"12.7.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}}"}}
+[debug] [2024-11-12T22:50:34.334Z] [runtime-status] [9572] initializeApp(DEFAULT) {"storageBucket":"tickes-7fdf6.firebasestorage.app","projectId":"tickes-7fdf6"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [9572] initializeApp(DEFAULT) {\"storageBucket\":\"tickes-7fdf6.firebasestorage.app\",\"projectId\":\"tickes-7fdf6\"}"}}
+[debug] [2024-11-12T22:50:34.346Z] [runtime-status] [9572] Functions runtime initialized. {"cwd":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions","node_version":"18.20.4"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [9572] Functions runtime initialized. {\"cwd\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\",\"node_version\":\"18.20.4\"}"}}
+[debug] [2024-11-12T22:50:34.346Z] [runtime-status] [9572] Listening to port: \\?\pipe\fire_emu_22c845a8a6831027 {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [9572] Listening to port: \\\\?\\pipe\\fire_emu_22c845a8a6831027"}}
+[debug] [2024-11-12T22:50:34.396Z] [worker-us-central1-api-01616e99-30f2-4719-8bf5-0170bd6a712a]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-01616e99-30f2-4719-8bf5-0170bd6a712a]: IDLE"}}
+[debug] [2024-11-12T22:50:34.396Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[info] i  functions: Beginning execution of "us-central1-api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"us-central1-api\""}}
+[debug] [2024-11-12T22:50:34.397Z] [worker-us-central1-api-01616e99-30f2-4719-8bf5-0170bd6a712a]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-01616e99-30f2-4719-8bf5-0170bd6a712a]: BUSY"}}
+[debug] [2024-11-12T22:50:34.770Z] Nov 12, 2024 7:50:34 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 7:50:34 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T22:50:34.962Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-api" in 565.3232ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"us-central1-api\" in 565.3232ms"}}
+[debug] [2024-11-12T22:50:34.969Z] [worker-us-central1-api-01616e99-30f2-4719-8bf5-0170bd6a712a]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-01616e99-30f2-4719-8bf5-0170bd6a712a]: IDLE"}}
+[debug] [2024-11-12T22:50:34.969Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-11-12T22:50:34.969Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-11-12T22:50:34.969Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-12T22:50:52.945Z] Nov 12, 2024 7:50:52 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 7:50:52 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T22:50:58.268Z] Nov 12, 2024 7:50:58 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 7:50:58 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T22:50:58.333Z] Nov 12, 2024 7:50:58 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 7:50:58 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T22:50:59.279Z] Nov 12, 2024 7:50:59 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 7:50:59 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T22:50:59.332Z] Nov 12, 2024 7:50:59 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 7:50:59 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T22:51:01.195Z] Nov 12, 2024 7:51:01 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 7:51:01 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T22:51:19.147Z] [work-queue] {"queuedWork":["/tickes-7fdf6/us-central1/api/tickets/createTicket-2024-11-12T22:51:19.147Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-12T22:51:19.147Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/tickes-7fdf6/us-central1/api/tickets/createTicket-2024-11-12T22:51:19.147Z"],"workRunningCount":1}
+[debug] [2024-11-12T22:51:19.148Z] Accepted request POST /tickes-7fdf6/us-central1/api/tickets/createTicket --> us-central1-api
+[debug] [2024-11-12T22:51:19.150Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-11-12T22:51:19.150Z] [functions] Got req.url=/tickes-7fdf6/us-central1/api/tickets/createTicket, mapping to path=/tickets/createTicket {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/tickes-7fdf6/us-central1/api/tickets/createTicket, mapping to path=/tickets/createTicket"}}
+[debug] [2024-11-12T22:51:19.151Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[info] i  functions: Beginning execution of "us-central1-api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"us-central1-api\""}}
+[debug] [2024-11-12T22:51:19.151Z] [worker-us-central1-api-01616e99-30f2-4719-8bf5-0170bd6a712a]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-01616e99-30f2-4719-8bf5-0170bd6a712a]: BUSY"}}
+[debug] [2024-11-12T22:51:19.206Z] Nov 12, 2024 7:51:19 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 7:51:19 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T22:51:19.213Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-api" in 62.4773ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"us-central1-api\" in 62.4773ms"}}
+[debug] [2024-11-12T22:51:19.214Z] [worker-us-central1-api-01616e99-30f2-4719-8bf5-0170bd6a712a]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-01616e99-30f2-4719-8bf5-0170bd6a712a]: IDLE"}}
+[debug] [2024-11-12T22:51:19.215Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-11-12T22:51:19.215Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-11-12T22:51:19.215Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-12T22:51:25.897Z] [work-queue] {"queuedWork":["/tickes-7fdf6/us-central1/api/tickets-2024-11-12T22:51:25.897Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-12T22:51:25.897Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/tickes-7fdf6/us-central1/api/tickets-2024-11-12T22:51:25.897Z"],"workRunningCount":1}
+[debug] [2024-11-12T22:51:25.897Z] Accepted request GET /tickes-7fdf6/us-central1/api/tickets --> us-central1-api
+[debug] [2024-11-12T22:51:25.900Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-11-12T22:51:25.900Z] [functions] Got req.url=/tickes-7fdf6/us-central1/api/tickets, mapping to path=/tickets {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/tickes-7fdf6/us-central1/api/tickets, mapping to path=/tickets"}}
+[debug] [2024-11-12T22:51:25.900Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[info] i  functions: Beginning execution of "us-central1-api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"us-central1-api\""}}
+[debug] [2024-11-12T22:51:25.901Z] [worker-us-central1-api-01616e99-30f2-4719-8bf5-0170bd6a712a]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-01616e99-30f2-4719-8bf5-0170bd6a712a]: BUSY"}}
+[debug] [2024-11-12T22:51:25.931Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-api" in 30.2756ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"us-central1-api\" in 30.2756ms"}}
+[debug] [2024-11-12T22:51:25.931Z] [worker-us-central1-api-01616e99-30f2-4719-8bf5-0170bd6a712a]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-01616e99-30f2-4719-8bf5-0170bd6a712a]: IDLE"}}
+[debug] [2024-11-12T22:51:25.932Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-11-12T22:51:25.932Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-11-12T22:51:25.932Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-12T22:52:19.230Z] Nov 12, 2024 7:52:19 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 7:52:19 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T22:53:05.098Z] Nov 12, 2024 7:53:05 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 7:53:05 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T22:54:05.110Z] Nov 12, 2024 7:54:05 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 7:54:05 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T22:55:21.093Z] Nov 12, 2024 7:55:21 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 7:55:21 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T22:56:21.108Z] Nov 12, 2024 7:56:21 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 7:56:21 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T22:57:07.092Z] Nov 12, 2024 7:57:07 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 7:57:07 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T22:59:06.459Z] Nov 12, 2024 7:59:06 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 12, 2024 7:59:06 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 7:59:06 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\nNov 12, 2024 7:59:06 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T22:59:06.459Z] Nov 12, 2024 7:59:06 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 7:59:06 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T22:59:06.462Z] Nov 12, 2024 7:59:06 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 7:59:06 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T22:59:08.171Z] Nov 12, 2024 7:59:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 7:59:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:00:08.210Z] Nov 12, 2024 8:00:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:00:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:00:54.093Z] Nov 12, 2024 8:00:54 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:00:54 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:01:40.098Z] Nov 12, 2024 8:01:40 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:01:40 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:02:40.118Z] Nov 12, 2024 8:02:40 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:02:40 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:03:39.228Z] File C:\Users\Winic\Desktop\tickes\backend\functions\routes\ticketRoutes.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\routes\\ticketRoutes.js changed, reloading triggers"}}
+[debug] [2024-11-12T23:03:40.129Z] Nov 12, 2024 8:03:40 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:03:40 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:03:40.228Z] Validating nodejs source
+[debug] [2024-11-12T23:03:41.827Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-11-12T23:03:41.827Z] Building nodejs source
+[debug] [2024-11-12T23:03:41.827Z] Failed to find version of module node: reached end of search path C:\Users\Winic\Desktop\tickes\backend\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2024-11-12T23:03:41.829Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-11-12T23:03:41.841Z] Found firebase-functions binary at 'C:\Users\Winic\Desktop\tickes\backend\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8011
+
+[debug] [2024-11-12T23:03:42.574Z] Got response from /__/functions.yaml {"endpoints":{"api":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2024-11-12T23:03:42.600Z] defaultcredentials: writing to file C:\Users\Winic\AppData\Roaming\firebase\winiciusdasilvaneves_gmail_com_application_default_credentials.json
+[debug] [2024-11-12T23:03:42.601Z] Setting GAC to C:\Users\Winic\AppData\Roaming\firebase\winiciusdasilvaneves_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\Winic\\AppData\\Roaming\\firebase\\winiciusdasilvaneves_gmail_com_application_default_credentials.json"}}
+[info] +  functions: Loaded functions definitions from source: api. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: api."}}
+[debug] [2024-11-12T23:03:42.602Z] [worker-pool] Shutting down IDLE worker (us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Shutting down IDLE worker (us-central1-api)"}}
+[debug] [2024-11-12T23:03:42.602Z] [worker-us-central1-api-01616e99-30f2-4719-8bf5-0170bd6a712a]: FINISHING {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-01616e99-30f2-4719-8bf5-0170bd6a712a]: FINISHING"}}
+[debug] [2024-11-12T23:03:42.606Z] Nov 12, 2024 8:03:42 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
+WARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.io.IOException: Foi for�ado o cancelamento de uma conex�o existente pelo host remoto
+	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:233)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:356)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:255)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:356)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:03:42 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException\r\nWARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.\r\njava.io.IOException: Foi for�ado o cancelamento de uma conex�o existente pelo host remoto\r\n\tat java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)\r\n\tat java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)\r\n\tat java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)\r\n\tat java.base/sun.nio.ch.IOUtil.read(IOUtil.java:233)\r\n\tat java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)\r\n\tat java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:356)\r\n\tat io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:255)\r\n\tat io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)\r\n\tat io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:356)\r\n\tat io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)\r\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)\r\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)\r\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)\r\n\tat io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)\r\n\tat io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)\r\n\tat io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)\r\n\tat io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)\r\n\tat java.base/java.lang.Thread.run(Thread.java:829)\r\n\r\n"}}
+[debug] [2024-11-12T23:03:42.617Z] [worker-us-central1-api-01616e99-30f2-4719-8bf5-0170bd6a712a]: exited {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-01616e99-30f2-4719-8bf5-0170bd6a712a]: exited"}}
+[debug] [2024-11-12T23:03:42.617Z] [worker-us-central1-api-01616e99-30f2-4719-8bf5-0170bd6a712a]: FINISHED {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-01616e99-30f2-4719-8bf5-0170bd6a712a]: FINISHED"}}
+[debug] [2024-11-12T23:03:45.747Z] [work-queue] {"queuedWork":["/tickes-7fdf6/us-central1/api/tickets-2024-11-12T23:03:45.747Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-12T23:03:45.747Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/tickes-7fdf6/us-central1/api/tickets-2024-11-12T23:03:45.747Z"],"workRunningCount":1}
+[debug] [2024-11-12T23:03:45.747Z] Accepted request GET /tickes-7fdf6/us-central1/api/tickets --> us-central1-api
+[debug] [2024-11-12T23:03:45.749Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-11-12T23:03:45.749Z] [functions] Got req.url=/tickes-7fdf6/us-central1/api/tickets, mapping to path=/tickets {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/tickes-7fdf6/us-central1/api/tickets, mapping to path=/tickets"}}
+[debug] [2024-11-12T23:03:45.750Z] [worker-pool] Cleaned up workers for us-central1-api: 1 --> 0 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Cleaned up workers for us-central1-api: 1 --> 0"}}
+[debug] [2024-11-12T23:03:45.760Z] [worker-pool] addWorker(us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-api)"}}
+[debug] [2024-11-12T23:03:45.760Z] [worker-pool] Adding worker with key us-central1-api, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-api, total=1"}}
+[debug] [2024-11-12T23:03:47.858Z] [runtime-status] [10664] Resolved module firebase-admin {"declared":true,"installed":true,"version":"12.7.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10664] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"12.7.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2024-11-12T23:03:47.859Z] [runtime-status] [10664] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10664] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-12T23:03:47.860Z] [runtime-status] [10664] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10664] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2024-11-12T23:03:47.861Z] [runtime-status] [10664] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10664] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-12T23:03:48.241Z] [runtime-status] [10664] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10664] Checked functions.config() {\"config\":{}}"}}
+[debug] [2024-11-12T23:03:48.241Z] [runtime-status] [10664] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10664] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}}"}}
+[debug] [2024-11-12T23:03:48.242Z] [runtime-status] [10664] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10664] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-12T23:03:48.246Z] [runtime-status] [10664] Resolved module firebase-admin {"declared":true,"installed":true,"version":"12.7.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10664] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"12.7.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2024-11-12T23:03:48.252Z] [runtime-status] [10664] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10664] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-12T23:03:48.254Z] [runtime-status] [10664] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"12.7.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10664] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"12.7.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}}"}}
+[debug] [2024-11-12T23:03:48.400Z] [runtime-status] [10664] initializeApp(DEFAULT) {"storageBucket":"tickes-7fdf6.firebasestorage.app","projectId":"tickes-7fdf6"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10664] initializeApp(DEFAULT) {\"storageBucket\":\"tickes-7fdf6.firebasestorage.app\",\"projectId\":\"tickes-7fdf6\"}"}}
+[debug] [2024-11-12T23:03:48.418Z] [runtime-status] [10664] Functions runtime initialized. {"cwd":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions","node_version":"18.20.4"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10664] Functions runtime initialized. {\"cwd\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\",\"node_version\":\"18.20.4\"}"}}
+[debug] [2024-11-12T23:03:48.420Z] [runtime-status] [10664] Listening to port: \\?\pipe\fire_emu_e68f116e27e05f59 {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10664] Listening to port: \\\\?\\pipe\\fire_emu_e68f116e27e05f59"}}
+[debug] [2024-11-12T23:03:48.456Z] [worker-us-central1-api-45ebe77a-5d13-43a1-8045-ce83b5764774]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-45ebe77a-5d13-43a1-8045-ce83b5764774]: IDLE"}}
+[debug] [2024-11-12T23:03:48.456Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[info] i  functions: Beginning execution of "us-central1-api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"us-central1-api\""}}
+[debug] [2024-11-12T23:03:48.457Z] [worker-us-central1-api-45ebe77a-5d13-43a1-8045-ce83b5764774]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-45ebe77a-5d13-43a1-8045-ce83b5764774]: BUSY"}}
+[debug] [2024-11-12T23:03:48.927Z] Nov 12, 2024 8:03:48 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:03:48 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:03:48.949Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-api" in 492.5666ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"us-central1-api\" in 492.5666ms"}}
+[debug] [2024-11-12T23:03:48.950Z] [worker-us-central1-api-45ebe77a-5d13-43a1-8045-ce83b5764774]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-45ebe77a-5d13-43a1-8045-ce83b5764774]: IDLE"}}
+[debug] [2024-11-12T23:03:48.950Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-11-12T23:03:48.950Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-11-12T23:03:48.950Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-12T23:04:26.280Z] [work-queue] {"queuedWork":["/tickes-7fdf6/us-central1/api/tickets/deleteTicket/:1-2024-11-12T23:04:26.280Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-12T23:04:26.280Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/tickes-7fdf6/us-central1/api/tickets/deleteTicket/:1-2024-11-12T23:04:26.280Z"],"workRunningCount":1}
+[debug] [2024-11-12T23:04:26.280Z] Accepted request DELETE /tickes-7fdf6/us-central1/api/tickets/deleteTicket/:1 --> us-central1-api
+[debug] [2024-11-12T23:04:26.281Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-11-12T23:04:26.282Z] [functions] Got req.url=/tickes-7fdf6/us-central1/api/tickets/deleteTicket/:1, mapping to path=/tickets/deleteTicket/:1 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/tickes-7fdf6/us-central1/api/tickets/deleteTicket/:1, mapping to path=/tickets/deleteTicket/:1"}}
+[debug] [2024-11-12T23:04:26.282Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[info] i  functions: Beginning execution of "us-central1-api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"us-central1-api\""}}
+[debug] [2024-11-12T23:04:26.282Z] [worker-us-central1-api-45ebe77a-5d13-43a1-8045-ce83b5764774]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-45ebe77a-5d13-43a1-8045-ce83b5764774]: BUSY"}}
+[debug] [2024-11-12T23:04:26.305Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-api" in 22.8259ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"us-central1-api\" in 22.8259ms"}}
+[debug] [2024-11-12T23:04:26.305Z] [worker-us-central1-api-45ebe77a-5d13-43a1-8045-ce83b5764774]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-45ebe77a-5d13-43a1-8045-ce83b5764774]: IDLE"}}
+[debug] [2024-11-12T23:04:26.306Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-11-12T23:04:26.306Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-11-12T23:04:26.306Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-12T23:04:33.674Z] Nov 12, 2024 8:04:33 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:04:33 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:04:33.705Z] Nov 12, 2024 8:04:33 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:04:33 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:04:48.114Z] [work-queue] {"queuedWork":["/tickes-7fdf6/us-central1/api/tickets/deleteTicket/:2-2024-11-12T23:04:48.114Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-12T23:04:48.114Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/tickes-7fdf6/us-central1/api/tickets/deleteTicket/:2-2024-11-12T23:04:48.114Z"],"workRunningCount":1}
+[debug] [2024-11-12T23:04:48.114Z] Accepted request DELETE /tickes-7fdf6/us-central1/api/tickets/deleteTicket/:2 --> us-central1-api
+[debug] [2024-11-12T23:04:48.116Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-11-12T23:04:48.116Z] [functions] Got req.url=/tickes-7fdf6/us-central1/api/tickets/deleteTicket/:2, mapping to path=/tickets/deleteTicket/:2 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/tickes-7fdf6/us-central1/api/tickets/deleteTicket/:2, mapping to path=/tickets/deleteTicket/:2"}}
+[debug] [2024-11-12T23:04:48.116Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[info] i  functions: Beginning execution of "us-central1-api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"us-central1-api\""}}
+[debug] [2024-11-12T23:04:48.117Z] [worker-us-central1-api-45ebe77a-5d13-43a1-8045-ce83b5764774]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-45ebe77a-5d13-43a1-8045-ce83b5764774]: BUSY"}}
+[debug] [2024-11-12T23:04:48.133Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-api" in 16.3675ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"us-central1-api\" in 16.3675ms"}}
+[debug] [2024-11-12T23:04:48.134Z] [worker-us-central1-api-45ebe77a-5d13-43a1-8045-ce83b5764774]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-45ebe77a-5d13-43a1-8045-ce83b5764774]: IDLE"}}
+[debug] [2024-11-12T23:04:48.134Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-11-12T23:04:48.134Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-11-12T23:04:48.134Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-12T23:05:11.342Z] [work-queue] {"queuedWork":["/tickes-7fdf6/us-central1/api/tickets/deleteTicket/1-2024-11-12T23:05:11.342Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-12T23:05:11.343Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/tickes-7fdf6/us-central1/api/tickets/deleteTicket/1-2024-11-12T23:05:11.342Z"],"workRunningCount":1}
+[debug] [2024-11-12T23:05:11.343Z] Accepted request DELETE /tickes-7fdf6/us-central1/api/tickets/deleteTicket/1 --> us-central1-api
+[debug] [2024-11-12T23:05:11.345Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-11-12T23:05:11.345Z] [functions] Got req.url=/tickes-7fdf6/us-central1/api/tickets/deleteTicket/1, mapping to path=/tickets/deleteTicket/1 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/tickes-7fdf6/us-central1/api/tickets/deleteTicket/1, mapping to path=/tickets/deleteTicket/1"}}
+[debug] [2024-11-12T23:05:11.345Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[info] i  functions: Beginning execution of "us-central1-api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"us-central1-api\""}}
+[debug] [2024-11-12T23:05:11.346Z] [worker-us-central1-api-45ebe77a-5d13-43a1-8045-ce83b5764774]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-45ebe77a-5d13-43a1-8045-ce83b5764774]: BUSY"}}
+[debug] [2024-11-12T23:05:11.355Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-api" in 9.1069ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"us-central1-api\" in 9.1069ms"}}
+[debug] [2024-11-12T23:05:11.355Z] [worker-us-central1-api-45ebe77a-5d13-43a1-8045-ce83b5764774]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-45ebe77a-5d13-43a1-8045-ce83b5764774]: IDLE"}}
+[debug] [2024-11-12T23:05:11.356Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-11-12T23:05:11.356Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-11-12T23:05:11.356Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-12T23:05:33.725Z] Nov 12, 2024 8:05:33 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:05:33 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:06:33.742Z] Nov 12, 2024 8:06:33 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:06:33 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:07:03.419Z] File C:\Users\Winic\Desktop\tickes\backend\functions\routes\ticketRoutes.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\routes\\ticketRoutes.js changed, reloading triggers"}}
+[debug] [2024-11-12T23:07:04.420Z] Validating nodejs source
+[debug] [2024-11-12T23:07:05.748Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-11-12T23:07:05.748Z] Building nodejs source
+[debug] [2024-11-12T23:07:05.748Z] Failed to find version of module node: reached end of search path C:\Users\Winic\Desktop\tickes\backend\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2024-11-12T23:07:05.749Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-11-12T23:07:05.760Z] Found firebase-functions binary at 'C:\Users\Winic\Desktop\tickes\backend\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8556
+
+[debug] [2024-11-12T23:07:06.383Z] Got response from /__/functions.yaml {"endpoints":{"api":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2024-11-12T23:07:06.407Z] defaultcredentials: writing to file C:\Users\Winic\AppData\Roaming\firebase\winiciusdasilvaneves_gmail_com_application_default_credentials.json
+[debug] [2024-11-12T23:07:06.408Z] Setting GAC to C:\Users\Winic\AppData\Roaming\firebase\winiciusdasilvaneves_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\Winic\\AppData\\Roaming\\firebase\\winiciusdasilvaneves_gmail_com_application_default_credentials.json"}}
+[info] +  functions: Loaded functions definitions from source: api. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: api."}}
+[debug] [2024-11-12T23:07:06.409Z] [worker-pool] Shutting down IDLE worker (us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Shutting down IDLE worker (us-central1-api)"}}
+[debug] [2024-11-12T23:07:06.409Z] [worker-us-central1-api-45ebe77a-5d13-43a1-8045-ce83b5764774]: FINISHING {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-45ebe77a-5d13-43a1-8045-ce83b5764774]: FINISHING"}}
+[debug] [2024-11-12T23:07:06.412Z] Nov 12, 2024 8:07:06 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
+WARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.io.IOException: Foi for�ado o cancelamento de uma conex�o existente pelo host remoto
+	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:233)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:356)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:255)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:356)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:07:06 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException\r\nWARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.\r\njava.io.IOException: Foi for�ado o cancelamento de uma conex�o existente pelo host remoto\r\n\tat java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)\r\n\tat java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)\r\n\tat java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)\r\n\tat java.base/sun.nio.ch.IOUtil.read(IOUtil.java:233)\r\n\tat java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)\r\n\tat java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:356)\r\n\tat io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:255)\r\n\tat io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)\r\n\tat io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:356)\r\n\tat io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)\r\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)\r\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)\r\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)\r\n\tat io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)\r\n\tat io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)\r\n\tat io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)\r\n\tat io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)\r\n\tat java.base/java.lang.Thread.run(Thread.java:829)\r\n\r\n"}}
+[debug] [2024-11-12T23:07:06.428Z] [worker-us-central1-api-45ebe77a-5d13-43a1-8045-ce83b5764774]: exited {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-45ebe77a-5d13-43a1-8045-ce83b5764774]: exited"}}
+[debug] [2024-11-12T23:07:06.429Z] [worker-us-central1-api-45ebe77a-5d13-43a1-8045-ce83b5764774]: FINISHED {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-45ebe77a-5d13-43a1-8045-ce83b5764774]: FINISHED"}}
+[debug] [2024-11-12T23:07:08.163Z] [work-queue] {"queuedWork":["/tickes-7fdf6/us-central1/api/tickets/deleteTicket/1-2024-11-12T23:07:08.163Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-12T23:07:08.163Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/tickes-7fdf6/us-central1/api/tickets/deleteTicket/1-2024-11-12T23:07:08.163Z"],"workRunningCount":1}
+[debug] [2024-11-12T23:07:08.163Z] Accepted request DELETE /tickes-7fdf6/us-central1/api/tickets/deleteTicket/1 --> us-central1-api
+[debug] [2024-11-12T23:07:08.165Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-11-12T23:07:08.166Z] [functions] Got req.url=/tickes-7fdf6/us-central1/api/tickets/deleteTicket/1, mapping to path=/tickets/deleteTicket/1 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/tickes-7fdf6/us-central1/api/tickets/deleteTicket/1, mapping to path=/tickets/deleteTicket/1"}}
+[debug] [2024-11-12T23:07:08.166Z] [worker-pool] Cleaned up workers for us-central1-api: 1 --> 0 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Cleaned up workers for us-central1-api: 1 --> 0"}}
+[debug] [2024-11-12T23:07:08.175Z] [worker-pool] addWorker(us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-api)"}}
+[debug] [2024-11-12T23:07:08.175Z] [worker-pool] Adding worker with key us-central1-api, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-api, total=1"}}
+[debug] [2024-11-12T23:07:09.669Z] [runtime-status] [18820] Resolved module firebase-admin {"declared":true,"installed":true,"version":"12.7.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18820] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"12.7.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2024-11-12T23:07:09.671Z] [runtime-status] [18820] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18820] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-12T23:07:09.671Z] [runtime-status] [18820] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18820] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2024-11-12T23:07:09.673Z] [runtime-status] [18820] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18820] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-12T23:07:10.027Z] [runtime-status] [18820] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18820] Checked functions.config() {\"config\":{}}"}}
+[debug] [2024-11-12T23:07:10.028Z] [runtime-status] [18820] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18820] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}}"}}
+[debug] [2024-11-12T23:07:10.029Z] [runtime-status] [18820] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18820] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-12T23:07:10.034Z] [runtime-status] [18820] Resolved module firebase-admin {"declared":true,"installed":true,"version":"12.7.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18820] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"12.7.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2024-11-12T23:07:10.036Z] [runtime-status] [18820] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18820] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-12T23:07:10.037Z] [runtime-status] [18820] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"12.7.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18820] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"12.7.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}}"}}
+[debug] [2024-11-12T23:07:10.185Z] [runtime-status] [18820] initializeApp(DEFAULT) {"storageBucket":"tickes-7fdf6.firebasestorage.app","projectId":"tickes-7fdf6"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18820] initializeApp(DEFAULT) {\"storageBucket\":\"tickes-7fdf6.firebasestorage.app\",\"projectId\":\"tickes-7fdf6\"}"}}
+[debug] [2024-11-12T23:07:10.198Z] [runtime-status] [18820] Functions runtime initialized. {"cwd":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions","node_version":"18.20.4"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18820] Functions runtime initialized. {\"cwd\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\",\"node_version\":\"18.20.4\"}"}}
+[debug] [2024-11-12T23:07:10.198Z] [runtime-status] [18820] Listening to port: \\?\pipe\fire_emu_b0f91ee07ff522e0 {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18820] Listening to port: \\\\?\\pipe\\fire_emu_b0f91ee07ff522e0"}}
+[debug] [2024-11-12T23:07:10.325Z] [worker-us-central1-api-5bda9df9-ee70-439f-b9a0-090c52f7e03f]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-5bda9df9-ee70-439f-b9a0-090c52f7e03f]: IDLE"}}
+[debug] [2024-11-12T23:07:10.326Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[info] i  functions: Beginning execution of "us-central1-api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"us-central1-api\""}}
+[debug] [2024-11-12T23:07:10.328Z] [worker-us-central1-api-5bda9df9-ee70-439f-b9a0-090c52f7e03f]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-5bda9df9-ee70-439f-b9a0-090c52f7e03f]: BUSY"}}
+[debug] [2024-11-12T23:07:10.738Z] Nov 12, 2024 8:07:10 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:07:10 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:07:10.780Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-api" in 452.652ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"us-central1-api\" in 452.652ms"}}
+[debug] [2024-11-12T23:07:10.781Z] [worker-us-central1-api-5bda9df9-ee70-439f-b9a0-090c52f7e03f]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-5bda9df9-ee70-439f-b9a0-090c52f7e03f]: IDLE"}}
+[debug] [2024-11-12T23:07:10.781Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-11-12T23:07:10.781Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-11-12T23:07:10.781Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-12T23:07:18.445Z] Nov 12, 2024 8:07:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:07:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:07:25.020Z] [work-queue] {"queuedWork":["/tickes-7fdf6/us-central1/api/tickets/deleteTicket/2-2024-11-12T23:07:25.020Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-12T23:07:25.020Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/tickes-7fdf6/us-central1/api/tickets/deleteTicket/2-2024-11-12T23:07:25.020Z"],"workRunningCount":1}
+[debug] [2024-11-12T23:07:25.020Z] Accepted request DELETE /tickes-7fdf6/us-central1/api/tickets/deleteTicket/2 --> us-central1-api
+[debug] [2024-11-12T23:07:25.025Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-11-12T23:07:25.026Z] [functions] Got req.url=/tickes-7fdf6/us-central1/api/tickets/deleteTicket/2, mapping to path=/tickets/deleteTicket/2 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/tickes-7fdf6/us-central1/api/tickets/deleteTicket/2, mapping to path=/tickets/deleteTicket/2"}}
+[debug] [2024-11-12T23:07:25.026Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[info] i  functions: Beginning execution of "us-central1-api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"us-central1-api\""}}
+[debug] [2024-11-12T23:07:25.029Z] [worker-us-central1-api-5bda9df9-ee70-439f-b9a0-090c52f7e03f]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-5bda9df9-ee70-439f-b9a0-090c52f7e03f]: BUSY"}}
+[debug] [2024-11-12T23:07:25.069Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-api" in 40.2285ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"us-central1-api\" in 40.2285ms"}}
+[debug] [2024-11-12T23:07:25.070Z] [worker-us-central1-api-5bda9df9-ee70-439f-b9a0-090c52f7e03f]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-5bda9df9-ee70-439f-b9a0-090c52f7e03f]: IDLE"}}
+[debug] [2024-11-12T23:07:25.070Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-11-12T23:07:25.070Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-11-12T23:07:25.070Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-12T23:07:25.096Z] Nov 12, 2024 8:07:25 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:07:25 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:07:42.920Z] Nov 12, 2024 8:07:42 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:07:42 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:07:59.233Z] [work-queue] {"queuedWork":["/tickes-7fdf6/us-central1/api/tickets/createTicket-2024-11-12T23:07:59.233Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-12T23:07:59.233Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/tickes-7fdf6/us-central1/api/tickets/createTicket-2024-11-12T23:07:59.233Z"],"workRunningCount":1}
+[debug] [2024-11-12T23:07:59.233Z] Accepted request POST /tickes-7fdf6/us-central1/api/tickets/createTicket --> us-central1-api
+[debug] [2024-11-12T23:07:59.235Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-11-12T23:07:59.235Z] [functions] Got req.url=/tickes-7fdf6/us-central1/api/tickets/createTicket, mapping to path=/tickets/createTicket {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/tickes-7fdf6/us-central1/api/tickets/createTicket, mapping to path=/tickets/createTicket"}}
+[debug] [2024-11-12T23:07:59.235Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[info] i  functions: Beginning execution of "us-central1-api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"us-central1-api\""}}
+[debug] [2024-11-12T23:07:59.236Z] [worker-us-central1-api-5bda9df9-ee70-439f-b9a0-090c52f7e03f]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-5bda9df9-ee70-439f-b9a0-090c52f7e03f]: BUSY"}}
+[debug] [2024-11-12T23:07:59.299Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-api" in 62.566ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"us-central1-api\" in 62.566ms"}}
+[debug] [2024-11-12T23:07:59.299Z] [worker-us-central1-api-5bda9df9-ee70-439f-b9a0-090c52f7e03f]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-5bda9df9-ee70-439f-b9a0-090c52f7e03f]: IDLE"}}
+[debug] [2024-11-12T23:07:59.299Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-11-12T23:07:59.300Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-11-12T23:07:59.300Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-12T23:08:03.470Z] Nov 12, 2024 8:08:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:08:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:08:26.616Z] [work-queue] {"queuedWork":["/tickes-7fdf6/us-central1/api/tickets/deletarTicket/1-2024-11-12T23:08:26.616Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-12T23:08:26.616Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/tickes-7fdf6/us-central1/api/tickets/deletarTicket/1-2024-11-12T23:08:26.616Z"],"workRunningCount":1}
+[debug] [2024-11-12T23:08:26.616Z] Accepted request DELETE /tickes-7fdf6/us-central1/api/tickets/deletarTicket/1 --> us-central1-api
+[debug] [2024-11-12T23:08:26.618Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-11-12T23:08:26.618Z] [functions] Got req.url=/tickes-7fdf6/us-central1/api/tickets/deletarTicket/1, mapping to path=/tickets/deletarTicket/1 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/tickes-7fdf6/us-central1/api/tickets/deletarTicket/1, mapping to path=/tickets/deletarTicket/1"}}
+[debug] [2024-11-12T23:08:26.618Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[info] i  functions: Beginning execution of "us-central1-api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"us-central1-api\""}}
+[debug] [2024-11-12T23:08:26.618Z] [worker-us-central1-api-5bda9df9-ee70-439f-b9a0-090c52f7e03f]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-5bda9df9-ee70-439f-b9a0-090c52f7e03f]: BUSY"}}
+[debug] [2024-11-12T23:08:26.621Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-api" in 3.1888ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"us-central1-api\" in 3.1888ms"}}
+[debug] [2024-11-12T23:08:26.622Z] [worker-us-central1-api-5bda9df9-ee70-439f-b9a0-090c52f7e03f]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-5bda9df9-ee70-439f-b9a0-090c52f7e03f]: IDLE"}}
+[debug] [2024-11-12T23:08:26.622Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-11-12T23:08:26.622Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-11-12T23:08:26.622Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-12T23:08:32.065Z] Nov 12, 2024 8:08:32 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:08:32 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:08:32.103Z] Nov 12, 2024 8:08:32 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:08:32 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:08:39.872Z] File C:\Users\Winic\Desktop\tickes\backend\functions\routes\ticketRoutes.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\routes\\ticketRoutes.js changed, reloading triggers"}}
+[debug] [2024-11-12T23:08:40.872Z] Validating nodejs source
+[debug] [2024-11-12T23:08:42.605Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-11-12T23:08:42.605Z] Building nodejs source
+[debug] [2024-11-12T23:08:42.605Z] Failed to find version of module node: reached end of search path C:\Users\Winic\Desktop\tickes\backend\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2024-11-12T23:08:42.607Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-11-12T23:08:42.615Z] Found firebase-functions binary at 'C:\Users\Winic\Desktop\tickes\backend\functions\node_modules\.bin\firebase-functions'
+[debug] [2024-11-12T23:08:42.623Z] File C:\Users\Winic\Desktop\tickes\backend\functions\routes\ticketRoutes.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\routes\\ticketRoutes.js changed, reloading triggers"}}
+[info] Serving at port 8433
+
+[debug] [2024-11-12T23:08:43.217Z] Got response from /__/functions.yaml {"endpoints":{"api":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2024-11-12T23:08:43.238Z] defaultcredentials: writing to file C:\Users\Winic\AppData\Roaming\firebase\winiciusdasilvaneves_gmail_com_application_default_credentials.json
+[debug] [2024-11-12T23:08:43.239Z] Setting GAC to C:\Users\Winic\AppData\Roaming\firebase\winiciusdasilvaneves_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\Winic\\AppData\\Roaming\\firebase\\winiciusdasilvaneves_gmail_com_application_default_credentials.json"}}
+[info] +  functions: Loaded functions definitions from source: api. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: api."}}
+[debug] [2024-11-12T23:08:43.240Z] [worker-pool] Shutting down IDLE worker (us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Shutting down IDLE worker (us-central1-api)"}}
+[debug] [2024-11-12T23:08:43.241Z] [worker-us-central1-api-5bda9df9-ee70-439f-b9a0-090c52f7e03f]: FINISHING {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-5bda9df9-ee70-439f-b9a0-090c52f7e03f]: FINISHING"}}
+[debug] [2024-11-12T23:08:43.243Z] Nov 12, 2024 8:08:43 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
+WARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.io.IOException: Foi for�ado o cancelamento de uma conex�o existente pelo host remoto
+	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:233)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:356)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:255)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:356)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:08:43 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException\r\nWARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.\r\njava.io.IOException: Foi for�ado o cancelamento de uma conex�o existente pelo host remoto\r\n\tat java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)\r\n\tat java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)\r\n\tat java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)\r\n\tat java.base/sun.nio.ch.IOUtil.read(IOUtil.java:233)\r\n\tat java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)\r\n\tat java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:356)\r\n\tat io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:255)\r\n\tat io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)\r\n\tat io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:356)\r\n\tat io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)\r\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)\r\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)\r\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)\r\n\tat io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)\r\n\tat io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)\r\n\tat io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)\r\n\tat io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)\r\n\tat java.base/java.lang.Thread.run(Thread.java:829)\r\n\r\n"}}
+[debug] [2024-11-12T23:08:43.260Z] [worker-us-central1-api-5bda9df9-ee70-439f-b9a0-090c52f7e03f]: exited {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-5bda9df9-ee70-439f-b9a0-090c52f7e03f]: exited"}}
+[debug] [2024-11-12T23:08:43.260Z] [worker-us-central1-api-5bda9df9-ee70-439f-b9a0-090c52f7e03f]: FINISHED {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-5bda9df9-ee70-439f-b9a0-090c52f7e03f]: FINISHED"}}
+[debug] [2024-11-12T23:08:43.625Z] Validating nodejs source
+[debug] [2024-11-12T23:08:45.290Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-11-12T23:08:45.291Z] Building nodejs source
+[debug] [2024-11-12T23:08:45.291Z] Failed to find version of module node: reached end of search path C:\Users\Winic\Desktop\tickes\backend\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2024-11-12T23:08:45.291Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-11-12T23:08:45.299Z] Found firebase-functions binary at 'C:\Users\Winic\Desktop\tickes\backend\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8510
+
+[debug] [2024-11-12T23:08:45.832Z] Got response from /__/functions.yaml {"endpoints":{"api":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2024-11-12T23:08:45.855Z] defaultcredentials: writing to file C:\Users\Winic\AppData\Roaming\firebase\winiciusdasilvaneves_gmail_com_application_default_credentials.json
+[debug] [2024-11-12T23:08:45.856Z] Setting GAC to C:\Users\Winic\AppData\Roaming\firebase\winiciusdasilvaneves_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\Winic\\AppData\\Roaming\\firebase\\winiciusdasilvaneves_gmail_com_application_default_credentials.json"}}
+[info] +  functions: Loaded functions definitions from source: api. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: api."}}
+[debug] [2024-11-12T23:08:48.289Z] [work-queue] {"queuedWork":["/tickes-7fdf6/us-central1/api/tickets/deletaTicket/1-2024-11-12T23:08:48.289Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-12T23:08:48.289Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/tickes-7fdf6/us-central1/api/tickets/deletaTicket/1-2024-11-12T23:08:48.289Z"],"workRunningCount":1}
+[debug] [2024-11-12T23:08:48.289Z] Accepted request DELETE /tickes-7fdf6/us-central1/api/tickets/deletaTicket/1 --> us-central1-api
+[debug] [2024-11-12T23:08:48.291Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-11-12T23:08:48.291Z] [functions] Got req.url=/tickes-7fdf6/us-central1/api/tickets/deletaTicket/1, mapping to path=/tickets/deletaTicket/1 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/tickes-7fdf6/us-central1/api/tickets/deletaTicket/1, mapping to path=/tickets/deletaTicket/1"}}
+[debug] [2024-11-12T23:08:48.291Z] [worker-pool] Cleaned up workers for us-central1-api: 1 --> 0 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Cleaned up workers for us-central1-api: 1 --> 0"}}
+[debug] [2024-11-12T23:08:48.299Z] [worker-pool] addWorker(us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-api)"}}
+[debug] [2024-11-12T23:08:48.299Z] [worker-pool] Adding worker with key us-central1-api, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-api, total=1"}}
+[debug] [2024-11-12T23:08:49.823Z] [runtime-status] [13480] Resolved module firebase-admin {"declared":true,"installed":true,"version":"12.7.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [13480] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"12.7.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2024-11-12T23:08:49.825Z] [runtime-status] [13480] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [13480] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-12T23:08:49.825Z] [runtime-status] [13480] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [13480] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2024-11-12T23:08:49.826Z] [runtime-status] [13480] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [13480] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-12T23:08:50.147Z] [runtime-status] [13480] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [13480] Checked functions.config() {\"config\":{}}"}}
+[debug] [2024-11-12T23:08:50.147Z] [runtime-status] [13480] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [13480] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}}"}}
+[debug] [2024-11-12T23:08:50.148Z] [runtime-status] [13480] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [13480] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-12T23:08:50.153Z] [runtime-status] [13480] Resolved module firebase-admin {"declared":true,"installed":true,"version":"12.7.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [13480] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"12.7.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2024-11-12T23:08:50.155Z] [runtime-status] [13480] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [13480] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-12T23:08:50.155Z] [runtime-status] [13480] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"12.7.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [13480] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"12.7.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}}"}}
+[debug] [2024-11-12T23:08:50.273Z] [runtime-status] [13480] initializeApp(DEFAULT) {"storageBucket":"tickes-7fdf6.firebasestorage.app","projectId":"tickes-7fdf6"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [13480] initializeApp(DEFAULT) {\"storageBucket\":\"tickes-7fdf6.firebasestorage.app\",\"projectId\":\"tickes-7fdf6\"}"}}
+[debug] [2024-11-12T23:08:50.284Z] [runtime-status] [13480] Functions runtime initialized. {"cwd":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions","node_version":"18.20.4"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [13480] Functions runtime initialized. {\"cwd\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\",\"node_version\":\"18.20.4\"}"}}
+[debug] [2024-11-12T23:08:50.285Z] [runtime-status] [13480] Listening to port: \\?\pipe\fire_emu_01307eaa19511ab7 {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [13480] Listening to port: \\\\?\\pipe\\fire_emu_01307eaa19511ab7"}}
+[debug] [2024-11-12T23:08:50.329Z] [worker-us-central1-api-fae470de-d6a1-4cf4-87d7-b1f0613f0643]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-fae470de-d6a1-4cf4-87d7-b1f0613f0643]: IDLE"}}
+[debug] [2024-11-12T23:08:50.330Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[info] i  functions: Beginning execution of "us-central1-api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"us-central1-api\""}}
+[debug] [2024-11-12T23:08:50.330Z] [worker-us-central1-api-fae470de-d6a1-4cf4-87d7-b1f0613f0643]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-fae470de-d6a1-4cf4-87d7-b1f0613f0643]: BUSY"}}
+[debug] [2024-11-12T23:08:50.354Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-api" in 23.4203ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"us-central1-api\" in 23.4203ms"}}
+[debug] [2024-11-12T23:08:50.354Z] [worker-us-central1-api-fae470de-d6a1-4cf4-87d7-b1f0613f0643]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-fae470de-d6a1-4cf4-87d7-b1f0613f0643]: IDLE"}}
+[debug] [2024-11-12T23:08:50.354Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-11-12T23:08:50.355Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-11-12T23:08:50.355Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-12T23:08:58.645Z] File C:\Users\Winic\Desktop\tickes\backend\functions\routes\ticketRoutes.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\routes\\ticketRoutes.js changed, reloading triggers"}}
+[debug] [2024-11-12T23:08:59.645Z] Validating nodejs source
+[debug] [2024-11-12T23:09:01.493Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-11-12T23:09:01.493Z] Building nodejs source
+[debug] [2024-11-12T23:09:01.493Z] Failed to find version of module node: reached end of search path C:\Users\Winic\Desktop\tickes\backend\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2024-11-12T23:09:01.495Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-11-12T23:09:01.526Z] Found firebase-functions binary at 'C:\Users\Winic\Desktop\tickes\backend\functions\node_modules\.bin\firebase-functions'
+[debug] [2024-11-12T23:09:01.548Z] File C:\Users\Winic\Desktop\tickes\backend\functions\routes\ticketRoutes.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\routes\\ticketRoutes.js changed, reloading triggers"}}
+[info] Serving at port 8693
+
+[debug] [2024-11-12T23:09:02.126Z] File C:\Users\Winic\Desktop\tickes\backend\functions\routes\ticketRoutes.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\routes\\ticketRoutes.js changed, reloading triggers"}}
+[error] TypeError: Router.use() requires a middleware function but got a Object
+    at Function.use (C:\Users\Winic\Desktop\tickes\backend\functions\node_modules\express\lib\router\index.js:469:13)
+    at Function.<anonymous> (C:\Users\Winic\Desktop\tickes\backend\functions\node_modules\express\lib\application.js:227:21)
+    at Array.forEach (<anonymous>)
+    at Function.use (C:\Users\Winic\Desktop\tickes\backend\functions\node_modules\express\lib\application.js:224:7)
+    at Object.<anonymous> (C:\Users\Winic\Desktop\tickes\backend\functions\index.js:17:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+
+[debug] [2024-11-12T23:09:02.196Z] Got response code 400; body Failed to generate manifest from function source: TypeError: Router.use() requires a middleware function but got a Object
+[error] !!  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2024-11-12T23:09:03.129Z] Validating nodejs source
+[debug] [2024-11-12T23:09:04.859Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-11-12T23:09:04.860Z] Building nodejs source
+[debug] [2024-11-12T23:09:04.860Z] Failed to find version of module node: reached end of search path C:\Users\Winic\Desktop\tickes\backend\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2024-11-12T23:09:04.862Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-11-12T23:09:04.870Z] Found firebase-functions binary at 'C:\Users\Winic\Desktop\tickes\backend\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8610
+
+[error] TypeError: Router.use() requires a middleware function but got a Object
+    at Function.use (C:\Users\Winic\Desktop\tickes\backend\functions\node_modules\express\lib\router\index.js:469:13)
+    at Function.<anonymous> (C:\Users\Winic\Desktop\tickes\backend\functions\node_modules\express\lib\application.js:227:21)
+    at Array.forEach (<anonymous>)
+    at Function.use (C:\Users\Winic\Desktop\tickes\backend\functions\node_modules\express\lib\application.js:224:7)
+    at Object.<anonymous> (C:\Users\Winic\Desktop\tickes\backend\functions\index.js:17:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+
+[debug] [2024-11-12T23:09:05.637Z] Got response code 400; body Failed to generate manifest from function source: TypeError: Router.use() requires a middleware function but got a Object
+[error] !!  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2024-11-12T23:09:06.459Z] File C:\Users\Winic\Desktop\tickes\backend\functions\routes\ticketRoutes.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\routes\\ticketRoutes.js changed, reloading triggers"}}
+[debug] [2024-11-12T23:09:07.461Z] Validating nodejs source
+[debug] [2024-11-12T23:09:08.836Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-11-12T23:09:08.836Z] Building nodejs source
+[debug] [2024-11-12T23:09:08.836Z] Failed to find version of module node: reached end of search path C:\Users\Winic\Desktop\tickes\backend\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2024-11-12T23:09:08.837Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-11-12T23:09:08.848Z] Found firebase-functions binary at 'C:\Users\Winic\Desktop\tickes\backend\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8143
+
+[debug] [2024-11-12T23:09:09.442Z] Got response from /__/functions.yaml {"endpoints":{"api":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2024-11-12T23:09:09.462Z] defaultcredentials: writing to file C:\Users\Winic\AppData\Roaming\firebase\winiciusdasilvaneves_gmail_com_application_default_credentials.json
+[debug] [2024-11-12T23:09:09.463Z] Setting GAC to C:\Users\Winic\AppData\Roaming\firebase\winiciusdasilvaneves_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\Winic\\AppData\\Roaming\\firebase\\winiciusdasilvaneves_gmail_com_application_default_credentials.json"}}
+[info] +  functions: Loaded functions definitions from source: api. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: api."}}
+[debug] [2024-11-12T23:09:09.464Z] [worker-pool] Shutting down IDLE worker (us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Shutting down IDLE worker (us-central1-api)"}}
+[debug] [2024-11-12T23:09:09.464Z] [worker-us-central1-api-fae470de-d6a1-4cf4-87d7-b1f0613f0643]: FINISHING {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-fae470de-d6a1-4cf4-87d7-b1f0613f0643]: FINISHING"}}
+[debug] [2024-11-12T23:09:09.476Z] [worker-us-central1-api-fae470de-d6a1-4cf4-87d7-b1f0613f0643]: exited {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-fae470de-d6a1-4cf4-87d7-b1f0613f0643]: exited"}}
+[debug] [2024-11-12T23:09:09.476Z] [worker-us-central1-api-fae470de-d6a1-4cf4-87d7-b1f0613f0643]: FINISHED {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-fae470de-d6a1-4cf4-87d7-b1f0613f0643]: FINISHED"}}
+[debug] [2024-11-12T23:09:15.576Z] [work-queue] {"queuedWork":["/tickes-7fdf6/us-central1/api/tickets/deleteTicket/1-2024-11-12T23:09:15.576Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-12T23:09:15.577Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/tickes-7fdf6/us-central1/api/tickets/deleteTicket/1-2024-11-12T23:09:15.576Z"],"workRunningCount":1}
+[debug] [2024-11-12T23:09:15.577Z] Accepted request DELETE /tickes-7fdf6/us-central1/api/tickets/deleteTicket/1 --> us-central1-api
+[debug] [2024-11-12T23:09:15.579Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-11-12T23:09:15.579Z] [functions] Got req.url=/tickes-7fdf6/us-central1/api/tickets/deleteTicket/1, mapping to path=/tickets/deleteTicket/1 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/tickes-7fdf6/us-central1/api/tickets/deleteTicket/1, mapping to path=/tickets/deleteTicket/1"}}
+[debug] [2024-11-12T23:09:15.580Z] [worker-pool] Cleaned up workers for us-central1-api: 1 --> 0 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Cleaned up workers for us-central1-api: 1 --> 0"}}
+[debug] [2024-11-12T23:09:15.589Z] [worker-pool] addWorker(us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-api)"}}
+[debug] [2024-11-12T23:09:15.589Z] [worker-pool] Adding worker with key us-central1-api, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-api, total=1"}}
+[debug] [2024-11-12T23:09:17.121Z] [runtime-status] [6140] Resolved module firebase-admin {"declared":true,"installed":true,"version":"12.7.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [6140] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"12.7.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2024-11-12T23:09:17.123Z] [runtime-status] [6140] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [6140] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-12T23:09:17.123Z] [runtime-status] [6140] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [6140] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2024-11-12T23:09:17.124Z] [runtime-status] [6140] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [6140] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-12T23:09:17.423Z] [runtime-status] [6140] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [6140] Checked functions.config() {\"config\":{}}"}}
+[debug] [2024-11-12T23:09:17.424Z] [runtime-status] [6140] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [6140] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}}"}}
+[debug] [2024-11-12T23:09:17.424Z] [runtime-status] [6140] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [6140] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-12T23:09:17.428Z] [runtime-status] [6140] Resolved module firebase-admin {"declared":true,"installed":true,"version":"12.7.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [6140] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"12.7.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2024-11-12T23:09:17.430Z] [runtime-status] [6140] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [6140] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-12T23:09:17.431Z] [runtime-status] [6140] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"12.7.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [6140] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"12.7.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}}"}}
+[debug] [2024-11-12T23:09:17.551Z] [runtime-status] [6140] initializeApp(DEFAULT) {"storageBucket":"tickes-7fdf6.firebasestorage.app","projectId":"tickes-7fdf6"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [6140] initializeApp(DEFAULT) {\"storageBucket\":\"tickes-7fdf6.firebasestorage.app\",\"projectId\":\"tickes-7fdf6\"}"}}
+[debug] [2024-11-12T23:09:17.562Z] [runtime-status] [6140] Functions runtime initialized. {"cwd":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions","node_version":"18.20.4"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [6140] Functions runtime initialized. {\"cwd\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\",\"node_version\":\"18.20.4\"}"}}
+[debug] [2024-11-12T23:09:17.563Z] [runtime-status] [6140] Listening to port: \\?\pipe\fire_emu_9ad4e4d3ae418373 {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [6140] Listening to port: \\\\?\\pipe\\fire_emu_9ad4e4d3ae418373"}}
+[debug] [2024-11-12T23:09:17.608Z] [worker-us-central1-api-6c6b2f3a-33f7-45fd-aeb8-3e1a53875480]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-6c6b2f3a-33f7-45fd-aeb8-3e1a53875480]: IDLE"}}
+[debug] [2024-11-12T23:09:17.608Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[info] i  functions: Beginning execution of "us-central1-api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"us-central1-api\""}}
+[debug] [2024-11-12T23:09:17.609Z] [worker-us-central1-api-6c6b2f3a-33f7-45fd-aeb8-3e1a53875480]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-6c6b2f3a-33f7-45fd-aeb8-3e1a53875480]: BUSY"}}
+[debug] [2024-11-12T23:09:17.989Z] Nov 12, 2024 8:09:17 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:09:17 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:09:18.020Z] Nov 12, 2024 8:09:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:09:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:09:18.022Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-api" in 413.6331ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"us-central1-api\" in 413.6331ms"}}
+[debug] [2024-11-12T23:09:18.023Z] [worker-us-central1-api-6c6b2f3a-33f7-45fd-aeb8-3e1a53875480]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-6c6b2f3a-33f7-45fd-aeb8-3e1a53875480]: IDLE"}}
+[debug] [2024-11-12T23:09:18.023Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-11-12T23:09:18.024Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-11-12T23:09:18.024Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-12T23:10:18.038Z] Nov 12, 2024 8:10:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:10:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:11:18.053Z] Nov 12, 2024 8:11:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:11:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:12:18.063Z] Nov 12, 2024 8:12:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:12:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:13:18.074Z] Nov 12, 2024 8:13:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:13:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:14:18.087Z] Nov 12, 2024 8:14:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:14:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:15:04.099Z] Nov 12, 2024 8:15:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:15:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:16:04.113Z] Nov 12, 2024 8:16:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:16:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:16:50.098Z] Nov 12, 2024 8:16:50 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:16:50 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:22:58.233Z] File C:\Users\Winic\Desktop\tickes\backend\functions\routes\ticketRoutes.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\routes\\ticketRoutes.js changed, reloading triggers"}}
+[debug] [2024-11-12T23:22:59.235Z] Validating nodejs source
+[debug] [2024-11-12T23:23:00.550Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-11-12T23:23:00.550Z] Building nodejs source
+[debug] [2024-11-12T23:23:00.551Z] Failed to find version of module node: reached end of search path C:\Users\Winic\Desktop\tickes\backend\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2024-11-12T23:23:00.553Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-11-12T23:23:00.562Z] Found firebase-functions binary at 'C:\Users\Winic\Desktop\tickes\backend\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8223
+
+[debug] [2024-11-12T23:23:01.143Z] Got response from /__/functions.yaml {"endpoints":{"api":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2024-11-12T23:23:01.163Z] defaultcredentials: writing to file C:\Users\Winic\AppData\Roaming\firebase\winiciusdasilvaneves_gmail_com_application_default_credentials.json
+[debug] [2024-11-12T23:23:01.163Z] Setting GAC to C:\Users\Winic\AppData\Roaming\firebase\winiciusdasilvaneves_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\Winic\\AppData\\Roaming\\firebase\\winiciusdasilvaneves_gmail_com_application_default_credentials.json"}}
+[info] +  functions: Loaded functions definitions from source: api. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: api."}}
+[debug] [2024-11-12T23:23:01.164Z] [worker-pool] Shutting down IDLE worker (us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Shutting down IDLE worker (us-central1-api)"}}
+[debug] [2024-11-12T23:23:01.164Z] [worker-us-central1-api-6c6b2f3a-33f7-45fd-aeb8-3e1a53875480]: FINISHING {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-6c6b2f3a-33f7-45fd-aeb8-3e1a53875480]: FINISHING"}}
+[debug] [2024-11-12T23:23:01.167Z] Nov 12, 2024 8:23:01 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
+WARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.io.IOException: Foi for�ado o cancelamento de uma conex�o existente pelo host remoto
+	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:233)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:356)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:255)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:356)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:23:01 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException\r\nWARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.\r\njava.io.IOException: Foi for�ado o cancelamento de uma conex�o existente pelo host remoto\r\n\tat java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)\r\n\tat java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)\r\n\tat java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)\r\n\tat java.base/sun.nio.ch.IOUtil.read(IOUtil.java:233)\r\n\tat java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)\r\n\tat java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:356)\r\n\tat io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:255)\r\n\tat io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)\r\n\tat io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:356)\r\n\tat io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)\r\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)\r\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)\r\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)\r\n\tat io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)\r\n\tat io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)\r\n\tat io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)\r\n\tat io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)\r\n\tat java.base/java.lang.Thread.run(Thread.java:829)\r\n\r\n"}}
+[debug] [2024-11-12T23:23:01.177Z] [worker-us-central1-api-6c6b2f3a-33f7-45fd-aeb8-3e1a53875480]: exited {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-6c6b2f3a-33f7-45fd-aeb8-3e1a53875480]: exited"}}
+[debug] [2024-11-12T23:23:01.177Z] [worker-us-central1-api-6c6b2f3a-33f7-45fd-aeb8-3e1a53875480]: FINISHED {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-6c6b2f3a-33f7-45fd-aeb8-3e1a53875480]: FINISHED"}}
+[debug] [2024-11-12T23:23:19.921Z] [work-queue] {"queuedWork":["/tickes-7fdf6/us-central1/api/tickets/deleteAllTickets-2024-11-12T23:23:19.921Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-12T23:23:19.922Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/tickes-7fdf6/us-central1/api/tickets/deleteAllTickets-2024-11-12T23:23:19.921Z"],"workRunningCount":1}
+[debug] [2024-11-12T23:23:19.922Z] Accepted request DELETE /tickes-7fdf6/us-central1/api/tickets/deleteAllTickets --> us-central1-api
+[debug] [2024-11-12T23:23:19.924Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-11-12T23:23:19.925Z] [functions] Got req.url=/tickes-7fdf6/us-central1/api/tickets/deleteAllTickets, mapping to path=/tickets/deleteAllTickets {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/tickes-7fdf6/us-central1/api/tickets/deleteAllTickets, mapping to path=/tickets/deleteAllTickets"}}
+[debug] [2024-11-12T23:23:19.925Z] [worker-pool] Cleaned up workers for us-central1-api: 1 --> 0 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Cleaned up workers for us-central1-api: 1 --> 0"}}
+[debug] [2024-11-12T23:23:19.933Z] [worker-pool] addWorker(us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-api)"}}
+[debug] [2024-11-12T23:23:19.933Z] [worker-pool] Adding worker with key us-central1-api, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-api, total=1"}}
+[debug] [2024-11-12T23:23:21.449Z] [runtime-status] [18036] Resolved module firebase-admin {"declared":true,"installed":true,"version":"12.7.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18036] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"12.7.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2024-11-12T23:23:21.451Z] [runtime-status] [18036] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18036] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-12T23:23:21.451Z] [runtime-status] [18036] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18036] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2024-11-12T23:23:21.453Z] [runtime-status] [18036] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18036] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-12T23:23:21.763Z] [runtime-status] [18036] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18036] Checked functions.config() {\"config\":{}}"}}
+[debug] [2024-11-12T23:23:21.764Z] [runtime-status] [18036] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18036] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}}"}}
+[debug] [2024-11-12T23:23:21.764Z] [runtime-status] [18036] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18036] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-12T23:23:21.768Z] [runtime-status] [18036] Resolved module firebase-admin {"declared":true,"installed":true,"version":"12.7.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18036] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"12.7.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2024-11-12T23:23:21.773Z] [runtime-status] [18036] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18036] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-12T23:23:21.774Z] [runtime-status] [18036] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"12.7.0","resolution":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18036] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"12.7.0\",\"resolution\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}}"}}
+[debug] [2024-11-12T23:23:21.891Z] [runtime-status] [18036] initializeApp(DEFAULT) {"storageBucket":"tickes-7fdf6.firebasestorage.app","projectId":"tickes-7fdf6"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18036] initializeApp(DEFAULT) {\"storageBucket\":\"tickes-7fdf6.firebasestorage.app\",\"projectId\":\"tickes-7fdf6\"}"}}
+[debug] [2024-11-12T23:23:21.903Z] [runtime-status] [18036] Functions runtime initialized. {"cwd":"C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions","node_version":"18.20.4"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18036] Functions runtime initialized. {\"cwd\":\"C:\\\\Users\\\\Winic\\\\Desktop\\\\tickes\\\\backend\\\\functions\",\"node_version\":\"18.20.4\"}"}}
+[debug] [2024-11-12T23:23:21.903Z] [runtime-status] [18036] Listening to port: \\?\pipe\fire_emu_131bf7468a1b6c79 {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18036] Listening to port: \\\\?\\pipe\\fire_emu_131bf7468a1b6c79"}}
+[debug] [2024-11-12T23:23:21.951Z] [worker-us-central1-api-0ef2c7c9-b69f-417e-a5da-1d835fddea72]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-0ef2c7c9-b69f-417e-a5da-1d835fddea72]: IDLE"}}
+[debug] [2024-11-12T23:23:21.952Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[info] i  functions: Beginning execution of "us-central1-api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"us-central1-api\""}}
+[debug] [2024-11-12T23:23:21.952Z] [worker-us-central1-api-0ef2c7c9-b69f-417e-a5da-1d835fddea72]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-0ef2c7c9-b69f-417e-a5da-1d835fddea72]: BUSY"}}
+[debug] [2024-11-12T23:23:22.332Z] Nov 12, 2024 8:23:22 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:23:22 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:23:22.360Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-api" in 407.8929ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"us-central1-api\" in 407.8929ms"}}
+[debug] [2024-11-12T23:23:22.360Z] [worker-us-central1-api-0ef2c7c9-b69f-417e-a5da-1d835fddea72]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-0ef2c7c9-b69f-417e-a5da-1d835fddea72]: IDLE"}}
+[debug] [2024-11-12T23:23:22.361Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-11-12T23:23:22.361Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-11-12T23:23:22.361Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-12T23:23:24.577Z] Nov 12, 2024 8:23:24 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:23:24 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:23:24.580Z] Nov 12, 2024 8:23:24 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 12, 2024 8:23:24 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 12, 2024 8:23:24 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:23:24 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\nNov 12, 2024 8:23:24 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\nNov 12, 2024 8:23:24 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:24:07.767Z] File C:\Users\Winic\Desktop\tickes\backend\functions\routes\ticketRoutes.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Users\\Winic\\Desktop\\tickes\\backend\\functions\\routes\\ticketRoutes.js changed, reloading triggers"}}
+[debug] [2024-11-12T23:24:08.768Z] Validating nodejs source
+[debug] [2024-11-12T23:24:09.993Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-11-12T23:24:09.994Z] Building nodejs source
+[debug] [2024-11-12T23:24:09.994Z] Failed to find version of module node: reached end of search path C:\Users\Winic\Desktop\tickes\backend\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2024-11-12T23:24:09.995Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-11-12T23:24:10.011Z] Found firebase-functions binary at 'C:\Users\Winic\Desktop\tickes\backend\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8777
+
+[debug] [2024-11-12T23:24:10.739Z] Got response from /__/functions.yaml {"endpoints":{"api":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2024-11-12T23:24:10.776Z] defaultcredentials: writing to file C:\Users\Winic\AppData\Roaming\firebase\winiciusdasilvaneves_gmail_com_application_default_credentials.json
+[debug] [2024-11-12T23:24:10.778Z] Setting GAC to C:\Users\Winic\AppData\Roaming\firebase\winiciusdasilvaneves_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\Winic\\AppData\\Roaming\\firebase\\winiciusdasilvaneves_gmail_com_application_default_credentials.json"}}
+[info] +  functions: Loaded functions definitions from source: api. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: api."}}
+[debug] [2024-11-12T23:24:10.780Z] [worker-pool] Shutting down IDLE worker (us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Shutting down IDLE worker (us-central1-api)"}}
+[debug] [2024-11-12T23:24:10.780Z] [worker-us-central1-api-0ef2c7c9-b69f-417e-a5da-1d835fddea72]: FINISHING {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-0ef2c7c9-b69f-417e-a5da-1d835fddea72]: FINISHING"}}
+[debug] [2024-11-12T23:24:10.786Z] Nov 12, 2024 8:24:10 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
+WARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.io.IOException: Foi for�ado o cancelamento de uma conex�o existente pelo host remoto
+	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:233)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:356)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:255)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:356)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:24:10 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException\r\nWARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.\r\njava.io.IOException: Foi for�ado o cancelamento de uma conex�o existente pelo host remoto\r\n\tat java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)\r\n\tat java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)\r\n\tat java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)\r\n\tat java.base/sun.nio.ch.IOUtil.read(IOUtil.java:233)\r\n\tat java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)\r\n\tat java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:356)\r\n\tat io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:255)\r\n\tat io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)\r\n\tat io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:356)\r\n\tat io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)\r\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)\r\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)\r\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)\r\n\tat io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)\r\n\tat io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)\r\n\tat io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)\r\n\tat io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)\r\n\tat java.base/java.lang.Thread.run(Thread.java:829)\r\n\r\n"}}
+[debug] [2024-11-12T23:24:10.801Z] [worker-us-central1-api-0ef2c7c9-b69f-417e-a5da-1d835fddea72]: exited {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-0ef2c7c9-b69f-417e-a5da-1d835fddea72]: exited"}}
+[debug] [2024-11-12T23:24:10.802Z] [worker-us-central1-api-0ef2c7c9-b69f-417e-a5da-1d835fddea72]: FINISHED {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-0ef2c7c9-b69f-417e-a5da-1d835fddea72]: FINISHED"}}
+[debug] [2024-11-12T23:24:22.915Z] Nov 12, 2024 8:24:22 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:24:22 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:25:08.092Z] Nov 12, 2024 8:25:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:25:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:26:08.104Z] Nov 12, 2024 8:26:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:26:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:27:08.114Z] Nov 12, 2024 8:27:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:27:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:28:08.123Z] Nov 12, 2024 8:28:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:28:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:29:08.141Z] Nov 12, 2024 8:29:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:29:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:30:08.158Z] Nov 12, 2024 8:30:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:30:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:31:10.422Z] Nov 12, 2024 8:31:10 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:31:10 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:35:12.980Z] Nov 12, 2024 8:35:12 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:35:12 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2024-11-12T23:36:50.492Z] >>> [apiv2][query] PUT http://127.0.0.1:8080/emulator/v1/projects/tickes-7fdf6:securityRules [none]
+[debug] [2024-11-12T23:36:50.492Z] >>> [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/tickes-7fdf6:securityRules {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\r\n\r\nservice cloud.firestore {\r\n  match /databases/{database}/documents {\r\n    match /{document=**} {\r\n      allow read, write: if false;\r\n    }\r\n  }\r\n}"}]}}
+[debug] [2024-11-12T23:36:50.497Z] Nov 12, 2024 8:36:50 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:36:50 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:36:50.550Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/tickes-7fdf6:securityRules 200
+[debug] [2024-11-12T23:36:50.550Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/tickes-7fdf6:securityRules {}
+[info] +  firestore: Rules updated. 
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2024-11-12T23:37:21.771Z] >>> [apiv2][query] PUT http://127.0.0.1:8080/emulator/v1/projects/tickes-7fdf6:securityRules [none]
+[debug] [2024-11-12T23:37:21.771Z] >>> [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/tickes-7fdf6:securityRules {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\r\n\r\nservice cloud.firestore {\r\n  match /databases/{database}/documents {\r\n    match /{document=**} {\r\n      allow read, write: if false;\r\n    }\r\n  }\r\n}"}]}}
+[debug] [2024-11-12T23:37:21.777Z] Nov 12, 2024 8:37:21 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:37:21 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:37:21.786Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/tickes-7fdf6:securityRules 200
+[debug] [2024-11-12T23:37:21.786Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/tickes-7fdf6:securityRules {}
+[info] +  firestore: Rules updated. 
+[debug] [2024-11-12T23:38:13.622Z] Nov 12, 2024 8:38:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:38:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:38:14.492Z] Nov 12, 2024 8:38:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 12, 2024 8:38:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:38:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\nNov 12, 2024 8:38:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:39:13.640Z] Nov 12, 2024 8:39:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:39:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:40:13.656Z] Nov 12, 2024 8:40:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:40:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2024-11-12T23:41:07.969Z] >>> [apiv2][query] PUT http://127.0.0.1:8080/emulator/v1/projects/tickes-7fdf6:securityRules [none]
+[debug] [2024-11-12T23:41:07.969Z] >>> [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/tickes-7fdf6:securityRules {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\r\n\r\nservice cloud.firestore {\r\n  match /databases/{database}/documents {\r\n    match /{document=**} {\r\n      allow read, write: if false;\r\n    }\r\n  }\r\n}"}]}}
+[debug] [2024-11-12T23:41:07.973Z] Nov 12, 2024 8:41:07 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:41:07 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:41:07.987Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/tickes-7fdf6:securityRules 200
+[debug] [2024-11-12T23:41:07.987Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/tickes-7fdf6:securityRules {}
+[info] +  firestore: Rules updated. 
+[debug] [2024-11-12T23:41:13.668Z] Nov 12, 2024 8:41:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:41:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:42:13.677Z] Nov 12, 2024 8:42:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:42:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:43:13.687Z] Nov 12, 2024 8:43:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:43:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-12T23:44:13.698Z] Nov 12, 2024 8:44:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 8:44:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2024-11-13T00:03:22.023Z] >>> [apiv2][query] PUT http://127.0.0.1:8080/emulator/v1/projects/tickes-7fdf6:securityRules [none]
+[debug] [2024-11-13T00:03:22.023Z] >>> [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/tickes-7fdf6:securityRules {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\r\n\r\nservice cloud.firestore {\r\n  match /databases/{database}/documents {\r\n    match /{document=**} {\r\n      allow read, write: if false;\r\n    }\r\n  }\r\n}"}]}}
+[debug] [2024-11-13T00:03:22.025Z] Nov 12, 2024 9:03:22 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 9:03:22 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-13T00:03:22.036Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/tickes-7fdf6:securityRules 200
+[debug] [2024-11-13T00:03:22.036Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/tickes-7fdf6:securityRules {}
+[info] +  firestore: Rules updated. 
