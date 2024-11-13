@@ -1,16 +1,25 @@
-const express = require('express');
-const admin = require('firebase-admin');
-const { FieldValue } = require('firebase-admin/firestore');
+const express = require("express");
+const admin = require("firebase-admin");
 
-const router = express.Router();
+const router = new express.Router();
 const db = admin.firestore();
+
+const TICKET_COLLECTION = "tickets";
+const COUNTER_COLLECTION = "counters";
+
+// Corrigido: Importação correta do FieldValue
+const FieldValue = admin.firestore.FieldValue;
 
 router.use(express.json());
 
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   try {
-    const ticketsSnapshot = await db.collection('tickets').get();
-    const tickets = ticketsSnapshot.docs.map(doc => doc.data());
+    const ticketsSnapshot = await db
+        .collection(TICKET_COLLECTION)
+        .get();
+    const tickets = ticketsSnapshot.docs.map((doc) => {
+      return doc.data();
+    });
     res.json(tickets);
   } catch (error) {
     console.error("Erro ao obter tickets:", error);
@@ -18,18 +27,28 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.post('/createTicket', async (req, res) => {
+router.post("/createTicket", async (req, res) => {
   try {
-    const { stCliente, zonaAlarme, prontoAtendimento = '' } = req.body;
+    const {
+      stCliente,
+      zonaAlarme,
+      prontoAtendimento = "",
+      status = "Aberto",
+    } = req.body;
 
     if (!stCliente || !zonaAlarme) {
-      return res.status(400).send({ error: "Campos 'stCliente' e 'zonaAlarme' são obrigatórios." });
+      return res.status(400).send({
+        error: "Campos 'stCliente' e 'zonaAlarme' são obrigatórios.",
+      });
     }
 
-    const counterRef = db.collection('counters').doc('ticketCounter');
+    const counterRef = db
+        .collection(COUNTER_COLLECTION)
+        .doc("ticketCounter");
+
     const counterSnapshot = await counterRef.get();
     if (!counterSnapshot.exists) {
-      await counterRef.set({ currentNumber: 0 });
+      await counterRef.set({currentNumber: 0});
     }
 
     const ticketNumber = await db.runTransaction(async (transaction) => {
@@ -37,14 +56,16 @@ router.post('/createTicket', async (req, res) => {
       const currentNumber = doc.data().currentNumber;
       const nextTicketNumber = currentNumber + 1;
 
-      transaction.update(counterRef, { currentNumber: nextTicketNumber });
+      transaction.update(counterRef, {
+        currentNumber: nextTicketNumber,
+      });
 
       return nextTicketNumber;
     });
 
     const newTicket = {
       prontoAtendimento,
-      status: 'Aberto',
+      status,
       stCliente,
       zonaAlarme,
       ticketNumber,
@@ -52,33 +73,37 @@ router.post('/createTicket', async (req, res) => {
       updatedAt: FieldValue.serverTimestamp(),
     };
 
-    const docRef = await db.collection('tickets').add(newTicket);
-    res.status(201).send({ ticketId: docRef.id, ...newTicket });
+    const docRef = await db.collection(TICKET_COLLECTION).add(newTicket);
+    res.status(201).send({ticketId: docRef.id, ...newTicket});
   } catch (error) {
     console.error("Erro ao criar ticket:", error);
     res.status(500).send(error.message);
   }
 });
 
-router.put('/updateTicket/:ticketNumber', async (req, res) => {
+router.put("/updateTicket/:ticketNumber", async (req, res) => {
   try {
-    const { ticketNumber } = req.params;
-
-    const ticketsRef = db.collection('tickets');
-    const snapshot = await ticketsRef.where('ticketNumber', '==', parseInt(ticketNumber)).get();
-
-    if (snapshot.empty) {
-      return res.status(404).send('Ticket não encontrado');
+    const ticketNumber = parseInt(req.params.ticketNumber, 10);
+    if (isNaN(ticketNumber)) {
+      return res.status(400).send("Número do ticket inválido");
     }
 
-    const docRef = snapshot.docs[0].ref;
+    const ticketsRef = db.collection(TICKET_COLLECTION);
+    const snapshot = await ticketsRef
+        .where("ticketNumber", "==", ticketNumber)
+        .get();
+
+    if (snapshot.empty) {
+      return res.status(404).send("Ticket não encontrado");
+    }
+
     const updatedTicket = {
       ...snapshot.docs[0].data(),
       ...req.body,
       updatedAt: FieldValue.serverTimestamp(),
     };
 
-    await docRef.update(updatedTicket);
+    await snapshot.docs[0].ref.update(updatedTicket);
     res.status(200).send(updatedTicket);
   } catch (error) {
     console.error("Erro ao atualizar ticket:", error);
@@ -86,39 +111,46 @@ router.put('/updateTicket/:ticketNumber', async (req, res) => {
   }
 });
 
-router.delete('/deleteTicket/:ticketNumber', async (req, res) => {
+router.delete("/deleteTicket/:ticketNumber", async (req, res) => {
   try {
-    const { ticketNumber } = req.params;
-
-    const ticketsRef = db.collection('tickets');
-    const snapshot = await ticketsRef.where('ticketNumber', '==', parseInt(ticketNumber)).get();
-
-    if (snapshot.empty) {
-      return res.status(404).send('Ticket não encontrado');
+    const ticketNumber = parseInt(req.params.ticketNumber, 10);
+    if (isNaN(ticketNumber)) {
+      return res.status(400).send("Número do ticket inválido");
     }
 
-    const docRef = snapshot.docs[0].ref;
-    await docRef.delete();
-    res.status(200).send('Ticket excluído com sucesso');
+    const ticketsRef = db.collection(TICKET_COLLECTION);
+    const snapshot = await ticketsRef
+        .where("ticketNumber", "==", ticketNumber)
+        .get();
+
+    if (snapshot.empty) {
+      return res.status(404).send("Ticket não encontrado");
+    }
+
+    await snapshot.docs[0].ref.delete();
+    res.status(200).send("Ticket excluído com sucesso");
   } catch (error) {
     console.error("Erro ao excluir ticket:", error);
     res.status(500).send(error.message);
   }
 });
 
-router.delete('/deleteAllTickets', async (req, res) => {
+router.delete("/deleteAllTickets", async (req, res) => {
   try {
-    const ticketsRef = db.collection('tickets');
+    if (!req.user?.isAdmin) {
+      return res.status(403).send("Ação não permitida");
+    }
+
+    const ticketsRef = db.collection(TICKET_COLLECTION);
     const snapshot = await ticketsRef.get();
 
     const batch = db.batch();
-    snapshot.docs.forEach(doc => {
+    snapshot.docs.forEach((doc) => {
       batch.delete(doc.ref);
     });
 
     await batch.commit();
-
-    res.status(200).send('Todos os tickets foram excluídos com sucesso');
+    res.status(200).send("Todos os tickets foram excluídos com sucesso");
   } catch (error) {
     console.error("Erro ao excluir todos os tickets:", error);
     res.status(500).send(error.message);

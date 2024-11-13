@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import { Container, InputContainer, Input, ButtonContainer, Button, ButtonText,  } from "./styles";
-import { useNavigation } from "@react-navigation/native";
+import React, { useState } from 'react';
+import { Container, InputContainer, Input, ButtonContainer, Button, ButtonText} from './styles';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Auth() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const navigation = useNavigation();
 
     return (
         <Container>
             <InputContainer>
-            
+
                 <Input
                     value={email}
                     onChangeText={(text) => setEmail(text)}
@@ -20,7 +20,7 @@ export default function Auth() {
                     style={{ flex: 1 }}
                 />
             </InputContainer>
-            
+
 
             <InputContainer>
 
@@ -35,10 +35,10 @@ export default function Auth() {
             </InputContainer>
 
             <ButtonContainer>
-                <Button onPress={() => navigation.goBack()} style={{ marginRight: 10, backgroundColor: "#000" }}>
+                <Button onPress={() => navigation.goBack()} style={{ marginRight: 10, backgroundColor: '#000' }}>
                     <ButtonText>Voltar</ButtonText>
                 </Button>
-                <Button onPress={() => console.log("Entrar")}>
+                <Button onPress={() => console.log('Entrar')}>
                     <ButtonText>Entrar</ButtonText>
                 </Button>
             </ButtonContainer>

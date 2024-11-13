@@ -1,7 +1,7 @@
 // styles.js
-import styled from "styled-components/native";
-import { LinearGradient } from "react-native-linear-gradient"; // Usar expo-linear-gradient se estiver no Expo
-import { TouchableOpacity } from "react-native";
+import styled from 'styled-components/native';
+import { LinearGradient } from 'react-native-linear-gradient'; // Usar expo-linear-gradient se estiver no Expo
+import { TouchableOpacity } from 'react-native';
 
 export const Container = styled.View`
     flex: 1;
@@ -32,7 +32,7 @@ export const GradientButton = styled(TouchableOpacity).attrs({
 `;
 
 export const ButtonGradient = styled(LinearGradient).attrs({
-    colors: ["#6F71EE", "#3F4188"],
+    colors: ['#6F71EE', '#3F4188'],
     start: { x: 0, y: 0 },
     end: { x: 1, y: 0 },
 })`

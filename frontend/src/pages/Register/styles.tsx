@@ -1,5 +1,5 @@
-import styled from "styled-components/native";
-import Icones from "react-native-vector-icons/FontAwesome";
+import styled from 'styled-components/native';
+import Icones from 'react-native-vector-icons/FontAwesome';
 
 export const Container = styled.View`
     flex: 1;

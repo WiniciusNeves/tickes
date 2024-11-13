@@ -1,7 +1,7 @@
 // Home.js
 import React from 'react';
-import { Container, GradientButton, ButtonText, ButtonGradient } from "./styles";
-import { useNavigation } from "@react-navigation/native";
+import { Container, GradientButton, ButtonText, ButtonGradient } from './styles';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Home() {
     const navigation = useNavigation();
