@@ -1204,3 +1204,11 @@ INFO: Detected non-HTTP/2 connection.
 [debug] [2024-11-13T00:03:22.036Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/tickes-7fdf6:securityRules 200
 [debug] [2024-11-13T00:03:22.036Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/tickes-7fdf6:securityRules {}
 [info] +  firestore: Rules updated. 
+[debug] [2024-11-13T00:04:56.238Z] Nov 12, 2024 9:04:56 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 9:04:56 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2024-11-13T00:04:56.238Z] Nov 12, 2024 9:04:56 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+Nov 12, 2024 9:04:56 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Nov 12, 2024 9:04:56 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\nNov 12, 2024 9:04:56 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
