@@ -1,20 +1,28 @@
-const {onRequest} = require("firebase-functions/v2/https");
+const { onRequest } = require("firebase-functions/v2/https");
 const express = require("express");
 const admin = require("firebase-admin");
 
-// Inicialize o Firebase Admin
+const app = express();
+
+
 if (!admin.apps.length) {
-  admin.initializeApp();
+    admin.initializeApp(); 
+} else {
+    admin.app();
 }
 
-const app = express();
-app.use(express.json()); // Certifique-se de que o JSON é interpretado
+const db = admin.firestore();
 
-// Importe o roteador de tickets
-const ticketRoutes = require("./routes/ticketRoutes.js");
+// Importação das rotas
+const ticketRoutes = require('./routes/ticketRoutes'); // Certifique-se de que o caminho está correto
+const authRoutes = require('./routes/authRoutes'); // Certifique-se de que o caminho está correto
 
-// Use o roteador
-app.use("/tickets", ticketRoutes);
+// Usando as rotas no app Express
+app.use('/tickets', ticketRoutes);
+app.use('/auth', authRoutes);
 
-// Exporte a função Firebase
-exports.api = onRequest(app);
+app.get('/', (req, res) => {
+    res.status(200).send('Hello from Firebase!');
+});
+
+exports.api = onRequest(app); // Definindo a função como um endpoint do Firebase Functions

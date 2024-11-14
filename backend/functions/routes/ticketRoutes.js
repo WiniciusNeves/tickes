@@ -1,24 +1,32 @@
 const express = require("express");
 const admin = require("firebase-admin");
 
-const router = new express.Router();
+const router = express.Router();
 const db = admin.firestore();
 
 const TICKET_COLLECTION = "tickets";
 const COUNTER_COLLECTION = "counters";
 
-// Corrigido: Importação correta do FieldValue
-const FieldValue = admin.firestore.FieldValue;
+// Função para formatar data no formato dd/mm/yyyy
+function formatDate(date) {
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0'); // Mês começa do 0
+  const year = date.getFullYear();
+
+  return `${day}/${month}/${year}`;
+}
 
 router.use(express.json());
 
 router.get("/", async (req, res) => {
   try {
-    const ticketsSnapshot = await db
-        .collection(TICKET_COLLECTION)
-        .get();
+    const ticketsSnapshot = await db.collection(TICKET_COLLECTION).get();
     const tickets = ticketsSnapshot.docs.map((doc) => {
-      return doc.data();
+      const ticket = doc.data();
+      // As datas já são strings no formato dd/mm/yyyy, então não é necessário chamar toDate()
+      ticket.createdAt = ticket.createdAt;  // Mantendo a data como string
+      ticket.updatedAt = ticket.updatedAt;  // Mantendo a data como string
+      return ticket;
     });
     res.json(tickets);
   } catch (error) {
@@ -29,12 +37,7 @@ router.get("/", async (req, res) => {
 
 router.post("/createTicket", async (req, res) => {
   try {
-    const {
-      stCliente,
-      zonaAlarme,
-      prontoAtendimento = "",
-      status = "Aberto",
-    } = req.body;
+    const { stCliente, zonaAlarme, prontoAtendimento = "", status = "Aberto" } = req.body;
 
     if (!stCliente || !zonaAlarme) {
       return res.status(400).send({
@@ -42,13 +45,11 @@ router.post("/createTicket", async (req, res) => {
       });
     }
 
-    const counterRef = db
-        .collection(COUNTER_COLLECTION)
-        .doc("ticketCounter");
+    const counterRef = db.collection(COUNTER_COLLECTION).doc("ticketCounter");
 
     const counterSnapshot = await counterRef.get();
     if (!counterSnapshot.exists) {
-      await counterRef.set({currentNumber: 0});
+      await counterRef.set({ currentNumber: 0 });
     }
 
     const ticketNumber = await db.runTransaction(async (transaction) => {
@@ -56,25 +57,26 @@ router.post("/createTicket", async (req, res) => {
       const currentNumber = doc.data().currentNumber;
       const nextTicketNumber = currentNumber + 1;
 
-      transaction.update(counterRef, {
-        currentNumber: nextTicketNumber,
-      });
+      transaction.update(counterRef, { currentNumber: nextTicketNumber });
 
       return nextTicketNumber;
     });
 
+    const currentDate = new Date(); // Obter a data atual
+    const formattedDate = formatDate(currentDate); // Formatar a data no formato dd/mm/yyyy
+
     const newTicket = {
       prontoAtendimento,
-      status,
+      status: status || "Aberto",
       stCliente,
       zonaAlarme,
       ticketNumber,
-      createdAt: FieldValue.serverTimestamp(),
-      updatedAt: FieldValue.serverTimestamp(),
+      createdAt: formattedDate,  // Data formatada manualmente
+      updatedAt: formattedDate,  // Data formatada manualmente
     };
 
     const docRef = await db.collection(TICKET_COLLECTION).add(newTicket);
-    res.status(201).send({ticketId: docRef.id, ...newTicket});
+    res.status(201).send({ ticketId: docRef.id, ...newTicket });
   } catch (error) {
     console.error("Erro ao criar ticket:", error);
     res.status(500).send(error.message);
@@ -89,9 +91,7 @@ router.put("/updateTicket/:ticketNumber", async (req, res) => {
     }
 
     const ticketsRef = db.collection(TICKET_COLLECTION);
-    const snapshot = await ticketsRef
-        .where("ticketNumber", "==", ticketNumber)
-        .get();
+    const snapshot = await ticketsRef.where("ticketNumber", "==", ticketNumber).get();
 
     if (snapshot.empty) {
       return res.status(404).send("Ticket não encontrado");
@@ -100,7 +100,7 @@ router.put("/updateTicket/:ticketNumber", async (req, res) => {
     const updatedTicket = {
       ...snapshot.docs[0].data(),
       ...req.body,
-      updatedAt: FieldValue.serverTimestamp(),
+      updatedAt: formatDate(new Date()),  // Atualiza a data de atualização
     };
 
     await snapshot.docs[0].ref.update(updatedTicket);
@@ -119,9 +119,7 @@ router.delete("/deleteTicket/:ticketNumber", async (req, res) => {
     }
 
     const ticketsRef = db.collection(TICKET_COLLECTION);
-    const snapshot = await ticketsRef
-        .where("ticketNumber", "==", ticketNumber)
-        .get();
+    const snapshot = await ticketsRef.where("ticketNumber", "==", ticketNumber).get();
 
     if (snapshot.empty) {
       return res.status(404).send("Ticket não encontrado");
