@@ -1,6 +1,6 @@
 // styles.js
 import styled from 'styled-components/native';
-import { LinearGradient } from 'react-native-linear-gradient'; // Usar expo-linear-gradient se estiver no Expo
+import { LinearGradient } from 'react-native-linear-gradient'; // Use expo-linear-gradient se estiver no Expo
 import { TouchableOpacity } from 'react-native';
 
 export const Container = styled.View`
@@ -15,10 +15,9 @@ export const Container = styled.View`
 export const ButtonText = styled.Text`
     font-size: 24px;
     font-weight: bold;
-    color: #CFC6C6;
+    color: #fff;
 `;
 
-// Ajuste o botão para garantir que o toque seja capturado
 export const GradientButton = styled(TouchableOpacity).attrs({
     activeOpacity: 0.8,
 })`
@@ -32,14 +31,14 @@ export const GradientButton = styled(TouchableOpacity).attrs({
 `;
 
 export const ButtonGradient = styled(LinearGradient).attrs({
-    colors: ['#6F71EE', '#3F4188'],
+    colors: ['#457547', '#002C0B'],
     start: { x: 0, y: 0 },
     end: { x: 1, y: 0 },
 })`
     flex: 1;
     width: 100%;
     height: 100%;
-    border-radius: 4px;
+    border-radius: 16px;
     align-items: center;
     justify-content: center;
 `;

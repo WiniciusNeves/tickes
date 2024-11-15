@@ -18,7 +18,7 @@ export const Container = styled.View`
 `;
 
 export const ButtonContainer = styled.View`
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     width: 100%;
@@ -32,6 +32,7 @@ export const Button = styled.TouchableOpacity`
     border-radius: 12px;
     align-items: center;
     justify-content: center;
+    flex-direction: row;
     flex: 1;
     margin: 5px;
 `;

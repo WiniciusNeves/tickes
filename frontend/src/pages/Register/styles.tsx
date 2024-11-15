@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import Icones from 'react-native-vector-icons/FontAwesome';
 
 export const Container = styled.View`
     flex: 1;
@@ -10,6 +9,7 @@ export const Container = styled.View`
     border: 2px solid #CFC6C6;
     padding: 20px;
     background-color: #F3F3F3;
+    
 `;
 
 export const Label = styled.Text`
@@ -41,11 +41,11 @@ export const Input = styled.TextInput`
 `;
 
 export const ButtonContainer = styled.View`
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
-    height: 15%;
+    height: 16%;
     margin: 20px;
 `;
 
@@ -66,7 +66,13 @@ export const ButtonText = styled.Text`
     color: #CFC6C6;
 `;
 
-export const Icon = styled(Icones)`
-    color: #fff;
-    font-size: 40px;
+export const ButtonGradient = styled.View`
+    background-color: #5e50ff;
+    padding: 10px 20px;
+    border-radius: 12px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex: 1;
+    margin: 5px;
 `;

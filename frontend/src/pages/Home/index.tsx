@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 
 export default function Home() {
     const navigation = useNavigation();
+
     return (
         <Container>
             <GradientButton onPress={() => navigation.navigate('Register')}>
@@ -21,3 +22,4 @@ export default function Home() {
         </Container>
     );
 }
+
