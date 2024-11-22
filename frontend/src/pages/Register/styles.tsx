@@ -15,7 +15,7 @@ export const Container = styled.View`
 export const Label = styled.Text`
     font-size: 24px;
     font-weight: bold;
-    color: #CFC6C6;
+    color: #457547;
     margin-bottom: 10px;
 `;
 
@@ -63,7 +63,7 @@ export const Button = styled.TouchableOpacity`
 export const ButtonText = styled.Text`
     font-size: 24px;
     font-weight: bold;
-    color: #CFC6C6;
+    color: #fff;
 `;
 
 export const ButtonGradient = styled.View`
