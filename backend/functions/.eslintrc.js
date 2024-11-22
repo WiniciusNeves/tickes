@@ -22,6 +22,7 @@ module.exports = {
     "no-undef": "off",
     "no-unused-expressions": "off",
     "max-len": "off",
+    "object-curly-spacing": "off",
   },
   overrides: [
     {

@@ -1,4 +1,3 @@
-
 const express = require("express");
 const admin = require("firebase-admin");
 
@@ -6,6 +5,7 @@ const router = new express.Router();
 
 router.use(express.json());
 
+// Rota para listar todos os usuários
 router.get("/", async (req, res) => {
   try {
     const usersSnapshot = await admin.auth().listUsers();
@@ -17,46 +17,61 @@ router.get("/", async (req, res) => {
   }
 });
 
+// Rota para login - **Esta parte deve ser feita no cliente, não no backend**
 router.post("/login", async (req, res) => {
   try {
-    const {email, password, role} = req.body;
+    const { email, password } = req.body;
 
     if (!email || !password) {
       return res.status(400).send("Campos 'email' e 'password' obrigatórios.");
     }
 
-    const userSnapshot = await admin.auth().getUserByEmail(email);
+    // Autenticação deve ser feita no cliente usando Firebase SDK
+    // Utilize o Firebase Authentication SDK para realizar login no frontend.
 
-    if (!userSnapshot) {
-      return res.status(404).send("Usuário não encontrado.");
-    }
-
-    const user = userSnapshot.toJSON();
-
-    if (user.disabled) {
-      return res.status(401).send("Usuário desabilitado.");
-    }
-
-    if (user.password !== password) {
-      return res.status(401).send("Senha incorreta.");
-    }
-
-    if (user.role !== role) {
-      return res.status(403).send("Acesso negado.");
-    }
-
-    const token = admin.auth().createCustomToken(user.uid);
-
-    res.status(200).send({token});
+    res.status(401).send("Autenticação no backend não é recomendada. Use o Firebase SDK no cliente.");
   } catch (error) {
     console.error("Erro ao fazer login:", error);
     res.status(500).send(error.message);
   }
 });
 
+// Rota para atualizar informações do usuário
+router.put("/updateUser", async (req, res) => {
+  try {
+    // Pegar o UID da URL (query)
+    const { uid } = req.query;
+    const { email, password, role } = req.body;
+
+    if (!uid) {
+      return res.status(400).send("Campo 'uid' obrigatório.");
+    }
+
+    // Atualizar informações do usuário
+    const updates = {};
+    if (email) updates.email = email;
+    if (password) updates.password = password;
+    if (role) {
+      updates.customClaims = { role }; // Definir a role como claim personalizada
+    }
+
+    await admin.auth().updateUser(uid, updates);
+
+    // Atualizar role se houver
+    if (role) {
+      await admin.auth().setCustomUserClaims(uid, { role });
+    }
+
+    res.status(200).send("Usuário atualizado com sucesso.");
+  } catch (error) {
+    console.error("Erro ao atualizar usuário:", error);
+    res.status(500).send(error.message);
+  }
+});
+// Rota para registrar um novo usuário
 router.post("/register", async (req, res) => {
   try {
-    const {email, password, role} = req.body;
+    const { email, password, role } = req.body;
 
     if (!email || !password) {
       return res.status(400).send("Campos 'email' e 'password' obrigatórios.");
@@ -65,11 +80,11 @@ router.post("/register", async (req, res) => {
     const userRecord = await admin.auth().createUser({
       email,
       password,
-      role: role || "user",
     });
 
+    // Adiciona claims personalizadas para o usuário
     await admin.auth().setCustomUserClaims(userRecord.uid, {
-      role,
+      role: role || "user", // Define 'role' como 'user' por padrão
     });
 
     res.status(201).send("Usuário criado com sucesso.");
@@ -79,9 +94,10 @@ router.post("/register", async (req, res) => {
   }
 });
 
+// Rota para desabilitar um usuário
 router.post("/disableUser", async (req, res) => {
   try {
-    const {email} = req.body;
+    const { email } = req.body;
 
     if (!email) {
       return res.status(400).send("Campo 'email' obrigatório.");
@@ -90,7 +106,7 @@ router.post("/disableUser", async (req, res) => {
     const userSnapshot = await admin.auth().getUserByEmail(email);
 
     if (!userSnapshot) {
-      return res.status(404).send("Usuário nao encontrado.");
+      return res.status(404).send("Usuário não encontrado.");
     }
 
     await admin.auth().updateUser(userSnapshot.uid, {
@@ -104,5 +120,20 @@ router.post("/disableUser", async (req, res) => {
   }
 });
 
+// Rota para realizar logout do usuário (revoga token)
+router.post("/logout", async (req, res) => {
+  try {
+    const token = req.body.token;
+    if (!token) {
+      return res.status(400).send("Token de usuário necessário.");
+    }
+
+    await admin.auth().revokeRefreshTokens(token);
+    res.status(200).send("Logout realizado com sucesso.");
+  } catch (error) {
+    console.error("Erro ao fazer logout:", error);
+    res.status(500).send(error.message);
+  }
+});
 
 module.exports = router;
