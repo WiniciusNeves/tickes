@@ -53,21 +53,19 @@ export default function App() {
           options={{ headerShown: false }}
         />
 
-        {/* Caso o usuário queira fazer login */}
         <Stack.Screen
           name="Auth"
           component={AuthScreen}
           options={{ headerShown: false }}
         />
-
-        {/* Caso o usuário queira registrar um ticket */}
+      
         <Stack.Screen
           name="Register"
           component={RegisterScreen}
           options={{ headerShown: false }}
         />
 
-        {/* Quando o usuário já está autenticado, ele pode acessar suas telas */}
+        
         {isAuthenticated && userRole === 'admin' && (
           <Stack.Screen
             name="Admin"

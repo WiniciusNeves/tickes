@@ -41,6 +41,113 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/byMonth", async (req, res) => {
+  try {
+    const { year, month } = req.query;
+
+    if (!year || !month) {
+      return res.status(400).send("Ano e mês são obrigatórios");
+
+    }
+
+    const parsedYear = parseInt(year, 10);
+    const parsedMonth = parseInt(month, 10);
+
+    if (isNaN(parsedYear) || isNaN(parsedMonth)) {
+      return res.status(400).send("Ano e mês devem ser números válidos");
+    }
+
+    const months = [
+      "janeiro",
+      "fevereiro",
+      "março",
+      "abril",
+      "maio",
+      "junho",
+      "julho",
+      "agosto",
+      "setembro",
+      "outubro",
+      "novembro",
+      "dezembro",
+    ];
+
+    const ticketsSnapshot = await db.collection(TICKET_COLLECTION).get();
+    const tickets = ticketsSnapshot.docs
+      .map((doc) => doc.data())
+      .filter((ticket) => {
+        const createdAt = ticket.createdAt.toDate();
+        return createdAt.getFullYear() === parsedYear && (createdAt.getMonth() + 1) === parsedMonth;
+      });
+
+    res.json({
+      year: parsedYear,
+      month: months[parsedMonth - 1],
+      tickets,
+    });
+  } catch (error) {
+    console.error("Erro ao obter tickets por mês:", error);
+    res.status(500).send(error.message);
+  }
+});
+
+router.get("/dashboardSummary", async (req, res) => {
+  try {
+    const { month, year } = req.query;
+
+    if (!month || !year) {
+      return res.status(400).send("Os parâmetros 'month' e 'year' são obrigatórios.");
+    }
+
+    const startDate = new Date(year, month - 1, 1);
+    const endDate = new Date(year, month, 0, 23, 59, 59);
+
+    const ticketsRef = db.collection(TICKET_COLLECTION);
+    const snapshot = await ticketsRef
+      .where("createdAt", ">=", startDate)
+      .where("createdAt", "<=", endDate)
+      .get();
+
+    if (snapshot.empty) {
+      return res.status(404).send("Nenhum ticket encontrado para o mês especificado.");
+    }
+
+    const tickets = snapshot.docs.map((doc) => doc.data());
+
+    // Calcula o número total de tickets no mês
+    const totalTickets = tickets.length;
+
+    // Top 10 clientes (stCliente) com mais tickets
+    const topClients = {};
+    tickets.forEach((ticket) => {
+      topClients[ticket.stCliente] = (topClients[ticket.stCliente] || 0) + 1;
+    });
+    const top10Clients = Object.entries(topClients)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 10);
+
+    // Top 3 zonas com mais alarmes
+    const topZones = {};
+    tickets.forEach((ticket) => {
+      topZones[ticket.zonaAlarme] = (topZones[ticket.zonaAlarme] || 0) + 1;
+    });
+    const top3Zones = Object.entries(topZones)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 3);
+
+    res.status(200).json({
+      totalTickets,
+      top10Clients,
+      top3Zones,
+      tickets,
+    });
+  } catch (error) {
+    console.error("Erro ao gerar resumo para o Dashboard:", error);
+    res.status(500).send(error.message);
+  }
+});
+
+
 router.post("/createTicket", async (req, res) => {
   try {
     const { stCliente, zonaAlarme, prontoAtendimento = "", status = "Aberto" } = req.body;

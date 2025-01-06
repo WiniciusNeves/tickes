@@ -23,6 +23,10 @@ module.exports = {
     "no-unused-expressions": "off",
     "max-len": "off",
     "object-curly-spacing": "off",
+    "camelcase": "off",
+    "linebreak-style": "off",
+    "indent": "off",
+    "padded-blocks": "off",
   },
   overrides: [
     {
