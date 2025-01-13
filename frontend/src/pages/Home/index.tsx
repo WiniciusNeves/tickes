@@ -1,15 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, GradientButton, ButtonText, ButtonGradient } from './styles';
 import { useNavigation } from '@react-navigation/native';
 import { Image, StyleSheet, View } from 'react-native';
 
 export default function Home() {
     const navigation = useNavigation();
-
     return (
         <Container>
             <View style={styles.imageContainer}>
-                <Image 
+                <Image
                     source={require('../../assets/images/logoVerde.png')}
                     style={styles.image}
                 />

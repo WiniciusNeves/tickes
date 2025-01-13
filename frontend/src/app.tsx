@@ -40,7 +40,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Loading">
+      <Stack.Navigator initialRouteName="Admin">
         <Stack.Screen
           name="Loading"
           component={LoadingScreen}

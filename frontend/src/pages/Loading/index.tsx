@@ -4,14 +4,13 @@ import { useNavigation } from '@react-navigation/native'; // Para navegação
 
 const LoadingScreen = () => {
     const [isLoading, setIsLoading] = useState(true);
-    const navigation = useNavigation(); // Hook de navegação
+    const navigation = useNavigation();
 
-    // Simula um delay para carregar a tela
     useEffect(() => {
         setTimeout(() => {
-            setIsLoading(false); // Depois de 3 segundos, esconde o carregamento
-            (navigation.navigate as any)('Home'); // Navega para a tela Home
-        }, 4000); // 3 segundos de carregamento
+            setIsLoading(false); 
+           ( navigation.reset as any)({ index: 0, routes: [{ name: 'Home' }] });
+        }, 4000); 
     }, []);
 
     return (

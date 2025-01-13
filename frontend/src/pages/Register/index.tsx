@@ -5,7 +5,7 @@ import { TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView, Platform } fr
 import LinearGradient from 'react-native-linear-gradient';
 import Toast from 'react-native-toast-message';
 import { Container, PickerContainer, Input, Label, ButtonContainer, Button, ButtonText } from './styles';
-import { createTicket } from '../../api/TickesService';
+import { createTicket } from '../../api/ticketsService';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 export default function Register() {
@@ -38,7 +38,9 @@ export default function Register() {
                     text1: 'Sucesso',
                     text2: 'Ticket registrado com sucesso!',
                 });
-                navigation.goBack();
+                setTimeout(() => {
+                    navigation.goBack();
+                }, 2000);
             })
             .catch((error) => {
                 console.error(error);
@@ -49,11 +51,10 @@ export default function Register() {
                 });
             });
     }
-
-   const handleNumericInput = (setter: (text: string) => void) => (text: string) => {
-       const numericText = text.replace(/\D/g, '');
-       setter(numericText);
-   };
+    const handleNumericInput = (setter: (text: string) => void) => (text: string) => {
+        const numericText = text.replace(/\D/g, '');
+        setter(numericText);
+    };
 
     return (
         <KeyboardAvoidingView
