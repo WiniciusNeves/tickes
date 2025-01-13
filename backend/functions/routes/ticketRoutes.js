@@ -40,37 +40,41 @@ router.get("/", async (req, res) => {
     res.status(500).send(error.message);
   }
 });
+const months = [
+  "janeiro",
+  "fevereiro",
+  "março",
+  "abril",
+  "maio",
+  "junho",
+  "julho",
+  "agosto",
+  "setembro",
+  "outubro",
+  "novembro",
+  "dezembro",
+];
 
+// Rota para obter tickets por mês
 router.get("/byMonth", async (req, res) => {
   try {
     const { year, month } = req.query;
 
     if (!year || !month) {
       return res.status(400).send("Ano e mês são obrigatórios");
-
     }
 
     const parsedYear = parseInt(year, 10);
-    const parsedMonth = parseInt(month, 10);
+    let parsedMonth = parseInt(month, 10);
 
-    if (isNaN(parsedYear) || isNaN(parsedMonth)) {
-      return res.status(400).send("Ano e mês devem ser números válidos");
+    // Se o mês for uma string (ex: "dezembro"), converta para número
+    if (isNaN(parsedMonth)) {
+      parsedMonth = months.indexOf(month.toLowerCase()) + 1; // Converte mês para número
     }
 
-    const months = [
-      "janeiro",
-      "fevereiro",
-      "março",
-      "abril",
-      "maio",
-      "junho",
-      "julho",
-      "agosto",
-      "setembro",
-      "outubro",
-      "novembro",
-      "dezembro",
-    ];
+    if (isNaN(parsedYear) || isNaN(parsedMonth) || parsedMonth < 1 || parsedMonth > 12) {
+      return res.status(400).send("Ano e mês devem ser números válidos");
+    }
 
     const ticketsSnapshot = await db.collection(TICKET_COLLECTION).get();
     const tickets = ticketsSnapshot.docs
@@ -91,6 +95,7 @@ router.get("/byMonth", async (req, res) => {
   }
 });
 
+// Rota para resumo do dashboard
 router.get("/dashboardSummary", async (req, res) => {
   try {
     const { month, year } = req.query;
@@ -99,8 +104,20 @@ router.get("/dashboardSummary", async (req, res) => {
       return res.status(400).send("Os parâmetros 'month' e 'year' são obrigatórios.");
     }
 
-    const startDate = new Date(year, month - 1, 1);
-    const endDate = new Date(year, month, 0, 23, 59, 59);
+    let parsedMonth = parseInt(month, 10);
+
+    if (isNaN(parsedMonth)) {
+      parsedMonth = months.indexOf(month.toLowerCase()) + 1; // Converte mês para número
+    }
+
+    const parsedYear = parseInt(year, 10);
+
+    if (isNaN(parsedYear) || parsedMonth < 1 || parsedMonth > 12) {
+      return res.status(400).send("Mês ou ano inválidos.");
+    }
+
+    const startDate = new Date(parsedYear, parsedMonth - 1, 1);
+    const endDate = new Date(parsedYear, parsedMonth, 0, 23, 59, 59);
 
     const ticketsRef = db.collection(TICKET_COLLECTION);
     const snapshot = await ticketsRef

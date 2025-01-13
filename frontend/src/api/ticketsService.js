@@ -8,6 +8,17 @@ export const fetchTickets = async () => {
   return response.data;
 };
 
+export const fetchTicketsByMonth = async (month, year) => {
+  const response = await api.get(`/tickets/byMonth`, { params: { month, year } });
+  return response.data;
+};
+
+export const fetchDashboardSummary = async (month, year) => {
+  const response = await api.get(`/tickets/dashboardSummary`, { params: { month, year } });
+  return response.data;
+};
+
+
 // Criar um ticket
 export const createTicket = async (data) => {
   const response = await api.post('/tickets/createTicket', data);
