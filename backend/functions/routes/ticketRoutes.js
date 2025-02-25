@@ -167,7 +167,7 @@ router.get("/dashboardSummary", async (req, res) => {
 
 router.post("/createTicket", async (req, res) => {
   try {
-    const { stCliente, zonaAlarme, prontoAtendimento = "", status = "Aberto" } = req.body;
+    const { stCliente, zonaAlarme, prontoAtendimento = "", name, status = "Aberto" } = req.body;
 
     if (!stCliente || !zonaAlarme) {
       return res.status(400).send({
@@ -198,6 +198,7 @@ router.post("/createTicket", async (req, res) => {
       stCliente,
       zonaAlarme,
       ticketNumber,
+      name,
       createdAt: new Date(),
       updatedAt: new Date(),
     };

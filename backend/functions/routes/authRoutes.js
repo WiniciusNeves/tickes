@@ -26,9 +26,6 @@ router.post("/login", async (req, res) => {
       return res.status(400).send("Campos 'email' e 'password' obrigatórios.");
     }
 
-    // Autenticação deve ser feita no cliente usando Firebase SDK
-    // Utilize o Firebase Authentication SDK para realizar login no frontend.
-
     res.status(401).send("Autenticação no backend não é recomendada. Use o Firebase SDK no cliente.");
   } catch (error) {
     console.error("Erro ao fazer login:", error);
@@ -81,10 +78,8 @@ router.post("/register", async (req, res) => {
       email,
       password,
     });
-
-    // Adiciona claims personalizadas para o usuário
     await admin.auth().setCustomUserClaims(userRecord.uid, {
-      role: role || "user", // Define 'role' como 'user' por padrão
+      role: role || "user",
     });
 
     res.status(201).send("Usuário criado com sucesso.");

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { KeyboardAvoidingView, Platform, Image, StyleSheet, View } from 'react-native';
 import { Container, InputContainer, Input, ButtonContainer, Button, ButtonText } from './styles';
 import LinearGradient from 'react-native-linear-gradient';
@@ -11,6 +11,33 @@ export default function Auth() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigation = useNavigation();
+
+  // Verifica se o usuário está logado ao iniciar o aplicativo
+  useEffect(() => {
+    const unsubscribe = auth().onAuthStateChanged((user) => {
+      if (user) {
+        user.getIdTokenResult().then((idTokenResult) => {
+          const userRole = idTokenResult.claims.role;
+
+          if (userRole === 'admin') {
+            navigation.reset({ index: 0, routes: [{ name: 'Admin' }] });
+          } else if (userRole === 'user') {
+            navigation.reset({ index: 0, routes: [{ name: 'User' }] });
+          } else {
+            Toast.show({
+              type: 'error',
+              position: 'top',
+              text1: 'Acesso negado!',
+              text2: 'Você não tem permissão para acessar o sistema.',
+            });
+            auth().signOut();
+          }
+        });
+      }
+    });
+
+    return () => unsubscribe(); // Cleanup ao desmontar o componente
+  }, [navigation]);
 
   function handleLogin() {
     if (!email || !password) {
@@ -28,13 +55,12 @@ export default function Auth() {
       .then(async (userCredential) => {
         const user = userCredential.user;
         const idTokenResult = await user.getIdTokenResult();
-
         const userRole = idTokenResult.claims.role;
 
         if (userRole === 'admin') {
-          (navigation.navigate as any)('Admin')
+          navigation.reset({ index: 0, routes: [{ name: 'Admin' }] });
         } else if (userRole === 'user') {
-          (navigation.navigate as any)('User')
+          navigation.reset({ index: 0, routes: [{ name: 'User' }] });
         } else {
           Toast.show({
             type: 'error',
@@ -87,27 +113,27 @@ export default function Auth() {
         <InputContainer>
           <Input
             value={email}
-            onChangeText={(text) => setEmail(text)}
+            onChangeText={setEmail}
             placeholder="E-mail"
             keyboardType="email-address"
             autoCapitalize="none"
-            placeholderTextColor={'#A9A9A9'}
+            placeholderTextColor="#A9A9A9"
             style={{ flex: 1 }}
           />
-          <FontAwesome5 name="envelope" size={20} color="#A9A9A9" style={{ position: 'absolute', right: 10, top: 15 }} />
+          <FontAwesome5 name="envelope" size={20} color="#A9A9A9" style={styles.icon} />
         </InputContainer>
 
         <InputContainer>
           <Input
             value={password}
-            onChangeText={(text) => setPassword(text)}
+            onChangeText={setPassword}
             placeholder="Senha"
-            secureTextEntry={true}
+            secureTextEntry
             autoCapitalize="none"
-            placeholderTextColor={'#A9A9A9'}
+            placeholderTextColor="#A9A9A9"
             style={{ flex: 1 }}
           />
-          <FontAwesome5 name="lock" size={20} color="#A9A9A9" style={{ position: 'absolute', right: 10, top: 15 }} />
+          <FontAwesome5 name="lock" size={20} color="#A9A9A9" style={styles.icon} />
         </InputContainer>
 
         <ButtonContainer>
@@ -115,16 +141,16 @@ export default function Auth() {
             colors={['#457547', '#002C0B']}
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}
-            style={{ width: '50%', height: 60, borderRadius: 12 }}
+            style={styles.gradientButton}
           >
             <Button onPress={handleLogin} style={{ backgroundColor: 'transparent' }}>
-              <FontAwesome5 name="share" size={20} color="#fff" style={{ marginRight: 10 }} />
+              <FontAwesome5 name="share" size={20} color="#fff" style={styles.icon} />
               <ButtonText>Entrar</ButtonText>
             </Button>
           </LinearGradient>
 
-          <Button onPress={() => navigation.goBack()} style={{ backgroundColor: '#000' }}>
-            <FontAwesome5 name="arrow-left" size={20} color="#fff" style={{ marginRight: 10 }} />
+          <Button onPress={() => navigation.goBack()} style={styles.backButton}>
+            <FontAwesome5 name="arrow-left" size={20} color="#fff" style={styles.icon} />
             <ButtonText>Voltar</ButtonText>
           </Button>
         </ButtonContainer>
@@ -145,5 +171,19 @@ const styles = StyleSheet.create({
     width: 150,
     height: 150,
     resizeMode: 'contain',
+  },
+  icon: {
+    position: 'absolute',
+    right: 10,
+    top: 15,
+  },
+  gradientButton: {
+    width: '50%',
+    height: 60,
+    borderRadius: 12,
+  },
+  backButton: {
+    backgroundColor: '#000',
+    marginTop: 16,
   },
 });

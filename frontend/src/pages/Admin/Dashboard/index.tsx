@@ -106,7 +106,6 @@ export default function Dashboard() {
             const hasPermission = await checkPermissions();
             if (!hasPermission) return;
 
-
             const headers = ["Ticket", "Dia Criação", "Status", "ST Cliente", "Zona", "Pronto Atendimento"];
             const rows = tickets.map((ticket: any) => [
                 ticket.ticketNumber,
@@ -124,13 +123,12 @@ export default function Dashboard() {
 
             const path = `${RNFS.DownloadDirectoryPath}/tickets_${month}_${year}.csv`;
 
-            l
             const bom = "\ufeff";
             await RNFS.writeFile(path, bom + csvContent, "utf8");
 
             Alert.alert("Sucesso", `Arquivo CSV salvo em:\n${path}`);
 
-            // Agora tenta compartilhar o arquivo
+    
             await shareFile(path);
 
         } catch (error) {
@@ -200,7 +198,7 @@ export default function Dashboard() {
                     headers={["Ticket", "Dia Criação", "Status", "ST Cliente", "Zona", "Pronto Atendimento"]}
                     rows={data.tickets.map((ticket: any) => [
                         ticket.ticketNumber,
-                        formatTimestamp(ticket.createdAt), // Exibe apenas o dia
+                        formatTimestamp(ticket.createdAt),
                         ticket.status,
                         ticket.stCliente,
                         ticket.zonaAlarme,
@@ -222,7 +220,7 @@ export default function Dashboard() {
                     selectedValue={month}
                     onValueChange={(value) => setMonth(value)}
                     style={{ flex: 1, color: "#333333" }}
-                    dropdownIconColor="#333333" // Cor da seta
+                    dropdownIconColor="#333333" 
                 >
                     {["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
                         .map((monthName, index) => (
