@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, Button, ActivityIndicator, ScrollView, Dimensions, Alert, Platform, TouchableOpacity } from "react-native";
 import { Picker } from "@react-native-picker/picker";
-import { PieChart } from "react-native-chart-kit";
+import { PieChart, BarChart, LineChart } from "react-native-chart-kit";
 import RNFS from "react-native-fs";
 import Share from "react-native-share";
 import { request, PERMISSIONS, RESULTS } from "react-native-permissions";
-import DocumentPicker from "react-native-document-picker";
 import styles from "./styles";
 import { fetchTicketsByMonth, fetchDashboardSummary } from "../../../api/ticketsService";
 
@@ -23,11 +22,17 @@ interface TopZone {
 
 interface Ticket {
     ticketNumber: string;
-    createdAt: { _seconds: number };
+    createdAt: { _seconds: number } | Date | string;
     status: string;
     stCliente: string;
     zonaAlarme: string;
     prontoAtendimento: string;
+    name: string;
+}
+
+interface TicketCreator {
+    name: string;
+    count: number;
 }
 
 interface DashboardData {
@@ -35,6 +40,7 @@ interface DashboardData {
     top10Clients: TopClient[];
     tickets: Ticket[];
     top3Zones: TopZone[];
+    ticketCreatorsCount: TicketCreator[];
 }
 
 export default function Dashboard() {
@@ -46,15 +52,16 @@ export default function Dashboard() {
         top10Clients: [],
         tickets: [],
         top3Zones: [],
+        ticketCreatorsCount: [],
     });
     const [error, setError] = useState<string | null>(null);
     const [showTableOnly, setShowTableOnly] = useState(false);
 
-       const fetchData = async () => {
+    const fetchData = async () => {
         if (!month || !year) return;
         setLoading(true);
         setError(null);
-    
+
         try {
             const response = showTableOnly
                 ? await fetchTicketsByMonth(month, year)
@@ -62,34 +69,48 @@ export default function Dashboard() {
 
             const tickets = response.tickets ? response.tickets.map((ticket: any) => ({
                 ...ticket,
-                createdAt: ticket.createdAt._seconds ? new Date(ticket.createdAt._seconds * 1000) : ticket.createdAt,
-                updatedAt: ticket.updatedAt._seconds ? new Date(ticket.updatedAt._seconds * 1000) : ticket.updatedAt,
+                createdAt: ticket.createdAt && typeof ticket.createdAt._seconds === "number"
+                    ? new Date(ticket.createdAt._seconds * 1000)
+                    : new Date(ticket.createdAt),
+                updatedAt: ticket.updatedAt && typeof ticket.updatedAt._seconds === "number"
+                    ? new Date(ticket.updatedAt._seconds * 1000)
+                    : new Date(ticket.updatedAt),
             })) : [];
-    
+
             const top10Clients = response.top10Clients ? response.top10Clients.map((client: any) => ({
                 client: client[0],
                 count: client[1],
             })) : [];
-    
+
             const top3Zones = response.top3Zones ? response.top3Zones.map((zone: any) => ({
                 zone: zone[0],
                 count: zone[1],
             })) : [];
-    
+
+            const ticketCreatorsCount = response.top5TicketCreators
+                ? response.top5TicketCreators.map((creator: any) => ({
+                    name: creator[0] && creator[0] !== "undefined" ? creator[0] : "Não identificado",
+                    count: creator[1],
+                }))
+                : [];
+
+
             setData({
                 totalTickets: response.totalTickets || 0,
                 top10Clients: top10Clients,
                 tickets: tickets,
                 top3Zones: top3Zones,
+                ticketCreatorsCount: ticketCreatorsCount,
             });
         } catch (err) {
             console.error("Erro ao carregar os dados:", err);
             setError("Erro ao carregar os dados. Tente novamente.");
-            setData({ totalTickets: 0, top10Clients: [], tickets: [], top3Zones: [] });
+            setData({ totalTickets: 0, top10Clients: [], tickets: [], top3Zones: [], ticketCreatorsCount: [] });
         } finally {
             setLoading(false);
         }
     };
+
     useEffect(() => {
         fetchData();
     }, [month, year, showTableOnly]);
@@ -109,27 +130,20 @@ export default function Dashboard() {
         return true;
     };
 
-    const formatTimestamp = (timestamp: { _seconds: number }) => {
-        const date = new Date(timestamp._seconds * 1000);
+    const formatTimestamp = (timestamp: { _seconds: number } | Date | string | null) => {
+        if (!timestamp) return "Data inválida";
+        let date;
+        if (typeof timestamp === "string") {
+            date = new Date(timestamp);
+        } else if (timestamp instanceof Date) {
+            date = timestamp;
+        } else {
+            date = new Date(timestamp._seconds * 1000);
+        }
         const day = String(date.getDate()).padStart(2, "0");
         const month = String(date.getMonth() + 1).padStart(2, "0");
         const year = date.getFullYear();
         return `${day}/${month}/${year}`;
-    };
-    const shareFile = async (path: string) => {
-        const options = {
-            url: `file://${path}`,
-            type: "text/csv",
-            failOnCancel: false,
-            message: "Confira o arquivo CSV exportado.",
-        };
-
-        try {
-            await Share.open(options);
-        } catch (error) {
-            console.error("Erro ao compartilhar o arquivo:", error);
-            Alert.alert("Erro ao compartilhar", "Houve um erro ao tentar compartilhar o arquivo.");
-        }
     };
 
     const exportToCSV = async (tickets: Ticket[]) => {
@@ -142,7 +156,7 @@ export default function Dashboard() {
             const hasPermission = await checkPermissions();
             if (!hasPermission) return;
 
-            const headers = ["Ticket", "Dia Criação", "Status", "ST Cliente", "Zona", "Pronto Atendimento"];
+            const headers = ["Ticket", "Dia Criação", "Status", "ST Cliente", "Zona", "Pronto Atendimento", "Nome"];
             const rows = tickets.map((ticket: Ticket) => [
                 ticket.ticketNumber,
                 `"${formatTimestamp(ticket.createdAt)}"`,
@@ -150,6 +164,7 @@ export default function Dashboard() {
                 ticket.stCliente,
                 ticket.zonaAlarme,
                 ticket.prontoAtendimento,
+                ticket.name,
             ]);
 
             const csvContent = [
@@ -178,15 +193,15 @@ export default function Dashboard() {
         }
     };
 
-       const renderDashboard = () => (
-        <View>
+    const renderDashboard = () => (
+        <ScrollView contentContainerStyle={styles.dashboardContainer}>
             <View style={styles.summary}>
                 <View style={styles.card}>
                     <Text style={styles.cardTitle}>Total de Tickets</Text>
                     <Text style={styles.cardValue}>{data.totalTickets}</Text>
                 </View>
             </View>
-    
+
             <View style={styles.chartContainer}>
                 <Text style={styles.chartTitle}>Top 10 Clientes</Text>
                 {data.top10Clients.length > 0 ? (
@@ -216,25 +231,68 @@ export default function Dashboard() {
                     <Text style={{ textAlign: "center" }}>Sem dados para o gráfico.</Text>
                 )}
             </View>
-    
+
             <View style={styles.chartContainer}>
                 <Text style={styles.chartTitle}>Top 3 Zonas</Text>
                 {data.top3Zones.length > 0 ? (
-                    data.top3Zones.slice(0, 3).map((zone, index) => (
-                        <Text key={`${zone.zone}-${index}`} style={{ textAlign: "left", fontSize: 15, marginBottom: 10, marginLeft: 10, color: "#666666", fontWeight: "bold", width: "80%" }}>
-                            {index + 1}. Zona {zone.zone}: {zone.count} tickets
-                        </Text>
-                    ))
+                    <BarChart
+                        data={{
+                            labels: data.top3Zones.map(zone => zone.zone),
+                            datasets: [
+                                {
+                                    data: data.top3Zones.map(zone => zone.count),
+                                },
+                            ],
+                        }}
+                        width={screenWidth - 40}
+                        height={220}
+                        chartConfig={{
+                            backgroundColor: "#ffffff",
+                            backgroundGradientFrom: "#ffffff",
+                            backgroundGradientTo: "#ffffff",
+                            color: (opacity = 1) => `rgba(0, 122, 255, ${opacity})`,
+                            style: { borderRadius: 16 },
+                        }}
+                        verticalLabelRotation={30}
+                    />
                 ) : (
                     <Text style={{ textAlign: "center" }}>Sem dados para o gráfico</Text>
                 )}
             </View>
-        </View>
+
+            <View style={styles.chartContainer}>
+                <Text style={styles.chartTitle}>Top 5 Nomes de Criadores de Tickets</Text>
+                {data.ticketCreatorsCount.length > 0 ? (
+                    <LineChart
+                        data={{
+                            labels: data.ticketCreatorsCount.map(creator => creator.name),
+                            datasets: [
+                                {
+                                    data: data.ticketCreatorsCount.map(creator => creator.count),
+                                },
+                            ],
+                        }}
+                        width={screenWidth - 40}
+                        height={220}
+                        chartConfig={{
+                            backgroundColor: "#ffffff",
+                            backgroundGradientFrom: "#ffffff",
+                            backgroundGradientTo: "#ffffff",
+                            color: (opacity = 1) => `rgba(0, 122, 255, ${opacity})`,
+                            style: { borderRadius: 16 },
+                        }}
+                        bezier
+                    />
+                ) : (
+                    <Text style={{ textAlign: "center" }}>Dados de Pronto Atendimento ainda não recebidos.</Text>
+                )}
+            </View>
+        </ScrollView>
     );
 
     const renderTable = () => (
         <ScrollView nestedScrollEnabled style={{ flex: 1 }}>
-
+            {/* Conteúdo da tabela */}
         </ScrollView>
     );
 

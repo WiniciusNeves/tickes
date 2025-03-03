@@ -33,10 +33,11 @@ export default function Register() {
 
   useEffect(() => {
     setFilteredPeople(areaToPeopleMap[selectedValue1] || []);
+    setSelectedValue4('');
   }, [selectedValue1]);
 
   function handleRegister() {
-    if (!selectedValue2 || !selectedValue3) {
+    if (!selectedValue2 || !selectedValue3 || !selectedValue4) {
       Toast.show({
         type: 'error',
         text1: 'Erro',
@@ -107,6 +108,7 @@ export default function Register() {
               style={styles.picker}
               enabled={selectedValue1 !== ''}
             >
+              <Picker.Item label="Selecione um nome" value="" />
               {filteredPeople.map((value) => (
                 <Picker.Item key={value} label={value} value={value} />
               ))}

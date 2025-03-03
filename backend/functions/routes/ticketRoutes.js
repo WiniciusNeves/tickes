@@ -152,11 +152,23 @@ router.get("/dashboardSummary", async (req, res) => {
       .sort((a, b) => b[1] - a[1])
       .slice(0, 3);
 
+    // Adiciona o nome da pessoa que criou o ticket
+    const ticketCreatorsCount = {};
+    tickets.forEach((ticket) => {
+      ticketCreatorsCount[ticket.name] = (ticketCreatorsCount[ticket.name] || 0) + 1;
+    });
+
+    const top5TicketCreators = Object.entries(ticketCreatorsCount)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 5);
+
+
     res.status(200).json({
       totalTickets,
       top10Clients,
       top3Zones,
       tickets,
+      top5TicketCreators,
     });
 
   } catch (error) {
@@ -164,7 +176,6 @@ router.get("/dashboardSummary", async (req, res) => {
     res.status(500).send(error.message);
   }
 });
-
 
 router.post("/createTicket", async (req, res) => {
   try {
