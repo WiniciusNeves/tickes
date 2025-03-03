@@ -3,50 +3,44 @@ import { KeyboardAvoidingView, Platform, Image, StyleSheet, View } from 'react-n
 import { Container, InputContainer, Input, ButtonContainer, Button, ButtonText } from './styles';
 import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, CommonActions } from '@react-navigation/native';
 import Toast from 'react-native-toast-message';
 import auth from '@react-native-firebase/auth';
 
 export default function Auth() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isAuthChecked, setIsAuthChecked] = useState(false);
   const navigation = useNavigation();
 
-  // Verifica se o usuário está logado ao iniciar o aplicativo
   useEffect(() => {
-    const unsubscribe = auth().onAuthStateChanged((user) => {
+    const unsubscribe = auth().onAuthStateChanged(async (user) => {
       if (user) {
-        user.getIdTokenResult().then((idTokenResult) => {
+        try {
+          const idTokenResult = await user.getIdTokenResult();
           const userRole = idTokenResult.claims.role;
 
           if (userRole === 'admin') {
-            navigation.reset({ index: 0, routes: [{ name: 'Admin' }] });
+            navigation.dispatch(CommonActions.reset({ index: 0, routes: [{ name: 'Admin' }] }));
           } else if (userRole === 'user') {
-            navigation.reset({ index: 0, routes: [{ name: 'User' }] });
+            navigation.dispatch(CommonActions.reset({ index: 0, routes: [{ name: 'User' }] }));
           } else {
-            Toast.show({
-              type: 'error',
-              position: 'top',
-              text1: 'Acesso negado!',
-              text2: 'Você não tem permissão para acessar o sistema.',
-            });
+            Toast.show({ type: 'error', text1: 'Acesso negado!', text2: 'Você não tem permissão.' });
             auth().signOut();
           }
-        });
+        } catch (error) {
+          Toast.show({ type: 'error', text1: 'Erro ao verificar usuário.', text2: error.message });
+        }
       }
+      setIsAuthChecked(true);
     });
 
-    return () => unsubscribe(); // Cleanup ao desmontar o componente
+    return () => unsubscribe();
   }, [navigation]);
 
   function handleLogin() {
     if (!email || !password) {
-      Toast.show({
-        type: 'error',
-        position: 'top',
-        text1: 'Campos obrigatórios',
-        text2: 'Preencha o e-mail e a senha.',
-      });
+      Toast.show({ type: 'error', text1: 'Campos obrigatórios', text2: 'Preencha e-mail e senha.' });
       return;
     }
 
@@ -58,56 +52,33 @@ export default function Auth() {
         const userRole = idTokenResult.claims.role;
 
         if (userRole === 'admin') {
-          navigation.reset({ index: 0, routes: [{ name: 'Admin' }] });
+          navigation.dispatch(CommonActions.reset({ index: 0, routes: [{ name: 'Admin' }] }));
         } else if (userRole === 'user') {
-          navigation.reset({ index: 0, routes: [{ name: 'User' }] });
+          navigation.dispatch(CommonActions.reset({ index: 0, routes: [{ name: 'User' }] }));
         } else {
-          Toast.show({
-            type: 'error',
-            position: 'top',
-            text1: 'Acesso negado!',
-            text2: 'Você não tem permissão para acessar o sistema.',
-          });
+          Toast.show({ type: 'error', text1: 'Acesso negado!', text2: 'Sem permissão.' });
           auth().signOut();
         }
 
-        Toast.show({
-          type: 'success',
-          position: 'top',
-          text1: 'Login bem-sucedido!',
-          text2: 'Você foi autenticado com sucesso.',
-        });
+        Toast.show({ type: 'success', text1: 'Login bem-sucedido!', text2: 'Bem-vindo!' });
       })
       .catch((error) => {
         let errorMessage = 'Verifique suas credenciais.';
-        if (error.code === 'auth/user-not-found') {
-          errorMessage = 'Usuário não encontrado.';
-        } else if (error.code === 'auth/wrong-password') {
-          errorMessage = 'Senha incorreta.';
-        } else if (error.code === 'auth/invalid-credentials') {
-          errorMessage = 'Credenciais inválidas. Verifique seu e-mail e senha.';
-        }
+        if (error.code === 'auth/user-not-found') errorMessage = 'Usuário não encontrado.';
+        else if (error.code === 'auth/wrong-password') errorMessage = 'Senha incorreta.';
+        else if (error.code === 'auth/invalid-credentials') errorMessage = 'Credenciais inválidas.';
 
-        Toast.show({
-          type: 'error',
-          position: 'top',
-          text1: 'Falha no Login!',
-          text2: errorMessage,
-        });
+        Toast.show({ type: 'error', text1: 'Falha no Login!', text2: errorMessage });
       });
   }
 
+  if (!isAuthChecked) return null; // Evita navegação prematura antes da verificação
+
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={{ flex: 1 }}
-    >
+    <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1 }}>
       <Container>
         <View style={styles.imageContainer}>
-          <Image
-            source={require('../../assets/images/logoVerde.png')}
-            style={styles.image}
-          />
+          <Image source={require('../../assets/images/logoVerde.png')} style={styles.image} />
         </View>
 
         <InputContainer>
@@ -137,12 +108,7 @@ export default function Auth() {
         </InputContainer>
 
         <ButtonContainer>
-          <LinearGradient
-            colors={['#457547', '#002C0B']}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 0 }}
-            style={styles.gradientButton}
-          >
+          <LinearGradient colors={['#457547', '#002C0B']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={styles.gradientButton}>
             <Button onPress={handleLogin} style={{ backgroundColor: 'transparent' }}>
               <FontAwesome5 name="share" size={20} color="#fff" style={styles.icon} />
               <ButtonText>Entrar</ButtonText>
@@ -185,5 +151,6 @@ const styles = StyleSheet.create({
   backButton: {
     backgroundColor: '#000',
     marginTop: 16,
+    width: '40%',
   },
 });

@@ -158,6 +158,7 @@ router.get("/dashboardSummary", async (req, res) => {
       top3Zones,
       tickets,
     });
+
   } catch (error) {
     console.error("Erro ao gerar resumo para o Dashboard:", error);
     res.status(500).send(error.message);

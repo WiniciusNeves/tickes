@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, Button, ActivityIndicator, ScrollView, Dimensions, Alert, Platform } from "react-native";
+import { View, Text, Button, ActivityIndicator, ScrollView, Dimensions, Alert, Platform, TouchableOpacity } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { PieChart } from "react-native-chart-kit";
 import RNFS from "react-native-fs";
 import Share from "react-native-share";
 import { request, PERMISSIONS, RESULTS } from "react-native-permissions";
+import DocumentPicker from "react-native-document-picker";
 import styles from "./styles";
-import Table from "../Table";
 import { fetchTicketsByMonth, fetchDashboardSummary } from "../../../api/ticketsService";
 
 const screenWidth = Dimensions.get("window").width;
@@ -20,11 +20,28 @@ interface TopZone {
     zone: string;
     count: number;
 }
+
+interface Ticket {
+    ticketNumber: string;
+    createdAt: { _seconds: number };
+    status: string;
+    stCliente: string;
+    zonaAlarme: string;
+    prontoAtendimento: string;
+}
+
+interface DashboardData {
+    totalTickets: number;
+    top10Clients: TopClient[];
+    tickets: Ticket[];
+    top3Zones: TopZone[];
+}
+
 export default function Dashboard() {
     const [month, setMonth] = useState("1");
     const [year, setYear] = useState(new Date().getFullYear().toString());
     const [loading, setLoading] = useState(false);
-    const [data, setData] = useState({
+    const [data, setData] = useState<DashboardData>({
         totalTickets: 0,
         top10Clients: [],
         tickets: [],
@@ -33,23 +50,37 @@ export default function Dashboard() {
     const [error, setError] = useState<string | null>(null);
     const [showTableOnly, setShowTableOnly] = useState(false);
 
-    const fetchData = async () => {
+       const fetchData = async () => {
         if (!month || !year) return;
         setLoading(true);
         setError(null);
-
+    
         try {
             const response = showTableOnly
                 ? await fetchTicketsByMonth(month, year)
                 : await fetchDashboardSummary(month, year);
 
-            setError(null);
-
+            const tickets = response.tickets ? response.tickets.map((ticket: any) => ({
+                ...ticket,
+                createdAt: ticket.createdAt._seconds ? new Date(ticket.createdAt._seconds * 1000) : ticket.createdAt,
+                updatedAt: ticket.updatedAt._seconds ? new Date(ticket.updatedAt._seconds * 1000) : ticket.updatedAt,
+            })) : [];
+    
+            const top10Clients = response.top10Clients ? response.top10Clients.map((client: any) => ({
+                client: client[0],
+                count: client[1],
+            })) : [];
+    
+            const top3Zones = response.top3Zones ? response.top3Zones.map((zone: any) => ({
+                zone: zone[0],
+                count: zone[1],
+            })) : [];
+    
             setData({
                 totalTickets: response.totalTickets || 0,
-                top10Clients: response.top10Clients || [],
-                tickets: response.tickets || [],
-                top3Zones: response.top3Zones || [],
+                top10Clients: top10Clients,
+                tickets: tickets,
+                top3Zones: top3Zones,
             });
         } catch (err) {
             console.error("Erro ao carregar os dados:", err);
@@ -59,27 +90,32 @@ export default function Dashboard() {
             setLoading(false);
         }
     };
-
     useEffect(() => {
         fetchData();
     }, [month, year, showTableOnly]);
 
     const checkPermissions = async () => {
-        if (Platform.OS === "android" && Platform.Version < 29) {
-            const result = await request(PERMISSIONS.ANDROID.WRITE_EXTERNAL_STORAGE);
-            if (result !== RESULTS.GRANTED) {
-                Alert.alert("Permissões", "Permissão de armazenamento necessária.");
-                return false;
+        if (Platform.OS === "android") {
+            if (Platform.Version >= 30) {
+                return true;
+            } else {
+                const result = await request(PERMISSIONS.ANDROID.WRITE_EXTERNAL_STORAGE);
+                if (result !== RESULTS.GRANTED) {
+                    Alert.alert("Permissão Negada", "É necessário permitir o acesso ao armazenamento.");
+                    return false;
+                }
             }
         }
         return true;
     };
+
     const formatTimestamp = (timestamp: { _seconds: number }) => {
         const date = new Date(timestamp._seconds * 1000);
         const day = String(date.getDate()).padStart(2, "0");
-        return day;
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const year = date.getFullYear();
+        return `${day}/${month}/${year}`;
     };
-
     const shareFile = async (path: string) => {
         const options = {
             url: `file://${path}`,
@@ -96,7 +132,7 @@ export default function Dashboard() {
         }
     };
 
-    const exportToCSV = async (tickets: any) => {
+    const exportToCSV = async (tickets: Ticket[]) => {
         if (!tickets || tickets.length === 0) {
             Alert.alert("Erro", "Nenhum dado disponível para exportação.");
             return;
@@ -107,7 +143,7 @@ export default function Dashboard() {
             if (!hasPermission) return;
 
             const headers = ["Ticket", "Dia Criação", "Status", "ST Cliente", "Zona", "Pronto Atendimento"];
-            const rows = tickets.map((ticket: any) => [
+            const rows = tickets.map((ticket: Ticket) => [
                 ticket.ticketNumber,
                 `"${formatTimestamp(ticket.createdAt)}"`,
                 ticket.status,
@@ -121,23 +157,28 @@ export default function Dashboard() {
                 ...rows.map((row: any[]) => row.join(";")),
             ].join("\n");
 
-            const path = `${RNFS.DownloadDirectoryPath}/tickets_${month}_${year}.csv`;
+            const path = `${RNFS.DocumentDirectoryPath}/tickets_${month}_${year}.csv`;
 
-            const bom = "\ufeff";
-            await RNFS.writeFile(path, bom + csvContent, "utf8");
+            await RNFS.writeFile(path, "\ufeff" + csvContent, "utf8");
 
-            Alert.alert("Sucesso", `Arquivo CSV salvo em:\n${path}`);
+            Alert.alert("Sucesso", `Arquivo salvo com sucesso em:\n${path}`);
 
-    
-            await shareFile(path);
+            const options = {
+                url: `file://${path}`,
+                type: "text/csv",
+                failOnCancel: false,
+                message: "Confira o arquivo CSV exportado.",
+            };
+
+            await Share.open(options);
 
         } catch (error) {
             console.error("Erro ao salvar o arquivo:", error);
-            Alert.alert("Erro ao salvar o arquivo", "Houve um erro ao tentar salvar o arquivo CSV.");
+            Alert.alert("Erro ao salvar o arquivo", "Não foi possível salvar o CSV.");
         }
     };
 
-    const renderDashboard = () => (
+       const renderDashboard = () => (
         <View>
             <View style={styles.summary}>
                 <View style={styles.card}>
@@ -145,14 +186,14 @@ export default function Dashboard() {
                     <Text style={styles.cardValue}>{data.totalTickets}</Text>
                 </View>
             </View>
-
+    
             <View style={styles.chartContainer}>
                 <Text style={styles.chartTitle}>Top 10 Clientes</Text>
                 {data.top10Clients.length > 0 ? (
                     <PieChart
-                        data={data.top10Clients.map(([client, count], index) => ({
-                            name: client,
-                            population: count,
+                        data={data.top10Clients.map((client, index) => ({
+                            name: client.client,
+                            population: isNaN(client.count) ? 0 : client.count,
                             color: ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0", "#9966FF", "#FF9F40", "#E7E9ED", "#76D7C4", "#F7DC6F", "#CD6155"][index % 10],
                             legendFontColor: "#7F7F7F",
                             legendFontSize: 15,
@@ -175,13 +216,13 @@ export default function Dashboard() {
                     <Text style={{ textAlign: "center" }}>Sem dados para o gráfico.</Text>
                 )}
             </View>
-
+    
             <View style={styles.chartContainer}>
                 <Text style={styles.chartTitle}>Top 3 Zonas</Text>
                 {data.top3Zones.length > 0 ? (
-                    data.top3Zones.slice(0, 3).map(([zone, count], index) => (
-                        <Text key={zone} style={{ textAlign: "left", fontSize: 15, marginBottom: 10, marginLeft: 10, color: "#666666", fontWeight: "bold", width: "80%" }}>
-                            {index + 1}. Zona {zone}: {count} tickets
+                    data.top3Zones.slice(0, 3).map((zone, index) => (
+                        <Text key={`${zone.zone}-${index}`} style={{ textAlign: "left", fontSize: 15, marginBottom: 10, marginLeft: 10, color: "#666666", fontWeight: "bold", width: "80%" }}>
+                            {index + 1}. Zona {zone.zone}: {zone.count} tickets
                         </Text>
                     ))
                 ) : (
@@ -193,21 +234,7 @@ export default function Dashboard() {
 
     const renderTable = () => (
         <ScrollView nestedScrollEnabled style={{ flex: 1 }}>
-            {data.tickets.length > 0 ? (
-                <Table
-                    headers={["Ticket", "Dia Criação", "Status", "ST Cliente", "Zona", "Pronto Atendimento"]}
-                    rows={data.tickets.map((ticket: any) => [
-                        ticket.ticketNumber,
-                        formatTimestamp(ticket.createdAt),
-                        ticket.status,
-                        ticket.stCliente,
-                        ticket.zonaAlarme,
-                        ticket.prontoAtendimento,
-                    ])}
-                />
-            ) : (
-                <Text style={{ textAlign: "center", padding: 20 }}>Sem tickets disponíveis.</Text>
-            )}
+
         </ScrollView>
     );
 
@@ -220,11 +247,11 @@ export default function Dashboard() {
                     selectedValue={month}
                     onValueChange={(value) => setMonth(value)}
                     style={{ flex: 1, color: "#333333" }}
-                    dropdownIconColor="#333333" 
+                    dropdownIconColor="#333333"
                 >
                     {["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
                         .map((monthName, index) => (
-                            <Picker.Item key={monthName} label={monthName} value={(index + 1).toString()} style={{ color: "#fff" }} />
+                            <Picker.Item key={index} label={monthName} value={(index + 1).toString()} style={{ color: "#fff" }} />
                         ))}
                 </Picker>
 
@@ -239,17 +266,16 @@ export default function Dashboard() {
                         return <Picker.Item key={i} label={yearOption} value={yearOption} style={{ color: "#fff" }} />;
                     })}
                 </Picker>
-
-                <Picker
-                    selectedValue={showTableOnly ? "Lista" : "Dashboard"}
-                    onValueChange={(value) => setShowTableOnly(value === "Lista")}
-                    style={{ flex: 1, color: "#333333" }}
-                    dropdownIconColor="#333333"
-                >
-                    <Picker.Item label="Dashboard" value="Dashboard" style={{ color: "#fff" }} />
-                    <Picker.Item label="Lista" value="Lista" style={{ color: "#fff" }} />
-                </Picker>
             </View>
+
+            <TouchableOpacity
+                style={styles.toggleButton}
+                onPress={() => setShowTableOnly(!showTableOnly)}
+            >
+                <Text style={styles.toggleButtonText}>
+                    {showTableOnly ? "Mostrar Dashboard" : "Mostrar Lista"}
+                </Text>
+            </TouchableOpacity>
 
             <View style={{ flex: 1 }}>
                 {loading && <ActivityIndicator size="large" color="#0000ff" />}
@@ -265,4 +291,3 @@ export default function Dashboard() {
         </View>
     );
 }
-

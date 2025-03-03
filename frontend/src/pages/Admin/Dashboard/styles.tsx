@@ -1,76 +1,59 @@
 import { StyleSheet } from "react-native";
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        padding: 20,
-        backgroundColor: "#f5f5f5",
-    },
+export default StyleSheet.create({
     title: {
         fontSize: 24,
         fontWeight: "bold",
-        margin: 20,
         textAlign: "center",
-        
-    },
-    loadingText: {
-        fontSize: 16,
-        textAlign: "center",
-        marginTop: 50,
-        
+        marginVertical: 20,
     },
     summary: {
         flexDirection: "row",
-        justifyContent: "space-between",
-        marginBottom: 20,
-        backgroundColor: "#fff",
-        color: "#000",
-        borderRadius: 10,
-        shadowColor: "#000",
-        shadowOpacity: 0.1,
-        shadowRadius: 5,
+        justifyContent: "space-around",
+        marginVertical: 10,
     },
     card: {
         backgroundColor: "#fff",
-        padding: 10,
-        borderRadius: 10,
+        borderRadius: 8,
+        padding: 15,
+        alignItems: "center",
         shadowColor: "#000",
+        shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.1,
-        shadowRadius: 5,
-        elevation: 3,
-        flex: 1,
-        marginHorizontal: 5,
+        shadowRadius: 8,
+        elevation: 5,
     },
     cardTitle: {
-        fontSize: 14,
-        fontWeight: "bold",
-        color: "#555",
-        marginBottom: 5,
+        fontSize: 16,
+        color: "#333",
     },
     cardValue: {
         fontSize: 20,
         fontWeight: "bold",
         color: "#000",
-        textAlign: "center",
+    },
+    chartContainer: {
+        marginVertical: 20,
+        paddingHorizontal: 20,
     },
     chartTitle: {
         fontSize: 18,
         fontWeight: "bold",
-        marginBottom: 10,
         textAlign: "center",
+        marginBottom: 10,
     },
-    chartContainer: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#fff",
-        borderRadius: 10,
-        shadowColor: "#000",
-        shadowOpacity: 0.1,
-        shadowRadius: 5,
-        elevation: 3,
+    toggleButton: {
+        backgroundColor: "#007AFF",
         padding: 10,
-    }
+        borderRadius: 5,
+        alignItems: "center",
+        justifyContent: "center",
+        marginVertical: 10, // Adiciona margem vertical para espaçamento
+        marginHorizontal: 20, // Adiciona margem horizontal para espaçamento
+    },
+    toggleButtonText: {
+        color: "#fff",
+        fontSize: 16,
+        fontWeight: "bold",
+    },
 });
-
-export default styles;

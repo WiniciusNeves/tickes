@@ -65,22 +65,17 @@ export default function App() {
           options={{ headerShown: false }}
         />
 
-        
-        {isAuthenticated && userRole === 'admin' && (
-          <Stack.Screen
-            name="Admin"
-            component={AdminScreen}
-            options={{ headerShown: false }}
-          />
-        )}
+        <Stack.Screen
+          name="Admin"
+          component={AdminScreen}
+          options={{ headerShown: false }}
+        />
 
-        {isAuthenticated && userRole !== 'admin' && (
-          <Stack.Screen
-            name="User"
-            component={UserScreen}
-            options={{ headerShown: false }}
-          />
-        )}
+        <Stack.Screen
+          name="User"
+          component={UserScreen}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
 
       <ToastComponent />

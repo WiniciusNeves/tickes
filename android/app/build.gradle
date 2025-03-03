@@ -44,7 +44,15 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
-}
+
+    applicationVariants.all { variant ->
+            variant.outputs.all { output ->
+                def appName = "RAPA" // Substitua pelo nome do seu aplicativo
+                def newApkName = "${appName}-${variant.buildType.name}.apk"
+                outputFileName = newApkName
+            }
+         }
+    }
 
 dependencies {
     implementation("com.facebook.react:react-android")

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { Picker } from '@react-native-picker/picker';
 import { TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView, Platform, StyleSheet } from 'react-native';
@@ -8,13 +8,32 @@ import { Container, PickerContainer, Input, Label, ButtonContainer, Button, Butt
 import { createTicket } from '../../api/ticketsService';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
+const areaToPeopleMap = {
+  'APOIO 1 DIA': ['NaN'],
+  'APOIO 1 NOITE': ['NaN'],
+  'APOIO 2 DIA': ['PAZETTE', 'DAVID'],
+  'APOIO 2 NOITE': ['PAZETTE', 'DAVID'],
+  'APOIO 3 DIA': ['JEFFERSON', 'JAISSON', 'GUILHERME', 'ADILSON'],
+  'APOIO 3 NOITE': ['JEFFERSON', 'JAISSON', 'GUILHERME', 'ADILSON'],
+  'APOIO 4 DIA': ['ROSSATO', 'VITOR', 'PATRICK'],
+  'APOIO 4 NOITE': ['ROSSATO', 'VITOR', 'PATRICK'],
+  'APOIO 5 DIA': ['MARCOS', 'CLAIRTON', 'ALISSON'],
+  'APOIO 5 NOITE': ['MARCOS', 'CLAIRTON', 'ALISSON'],
+  'APOIO 10 DIA': ['NaN'],
+};
+
 export default function Register() {
-  const [selectedValue1, setSelectedValue1] = useState('APOIO 1 DIA');
+  const [selectedValue1, setSelectedValue1] = useState('');
   const [selectedValue2, setSelectedValue2] = useState('');
   const [selectedValue3, setSelectedValue3] = useState('');
   const [selectedValue4, setSelectedValue4] = useState('');
+  const [filteredPeople, setFilteredPeople] = useState([]);
 
   const navigation = useNavigation();
+
+  useEffect(() => {
+    setFilteredPeople(areaToPeopleMap[selectedValue1] || []);
+  }, [selectedValue1]);
 
   function handleRegister() {
     if (!selectedValue2 || !selectedValue3) {
@@ -66,18 +85,29 @@ export default function Register() {
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <Container>
-          <Label style={styles.label}>[  ] PRONTO ATENDIMENTO</Label>
+          <Label style={styles.label}>[  ] AREA DO P.A</Label>
           <PickerContainer>
             <Picker
               selectedValue={selectedValue1}
               onValueChange={(itemValue) => setSelectedValue1(itemValue)}
               style={styles.picker}
             >
-              {[
-                'APOIO 1 DIA', 'APOIO 1 NOITE', 'APOIO 2 DIA', 'APOIO 2 NOITE',
-                'APOIO 3 DIA', 'APOIO 3 NOITE', 'APOIO 4 DIA', 'APOIO 4 NOITE',
-                'APOIO 5 DIA', 'APOIO 5 NOITE', 'APOIO 10',
-              ].map((value) => (
+              <Picker.Item label="Selecione uma área" value="" />
+              {Object.keys(areaToPeopleMap).map((value) => (
+                <Picker.Item key={value} label={value} value={value} />
+              ))}
+            </Picker>
+          </PickerContainer>
+
+          <Label style={styles.label}>[  ] NOME DO P.A</Label>
+          <PickerContainer>
+            <Picker
+              selectedValue={selectedValue4}
+              onValueChange={(itemValue) => setSelectedValue4(itemValue)}
+              style={styles.picker}
+              enabled={selectedValue1 !== ''}
+            >
+              {filteredPeople.map((value) => (
                 <Picker.Item key={value} label={value} value={value} />
               ))}
             </Picker>
@@ -101,26 +131,6 @@ export default function Register() {
             placeholderTextColor="#A9A9A9"
           />
 
-          <Label style={styles.label}>[  ] Nome</Label>
-          <PickerContainer>
-            <Picker
-              selectedValue={selectedValue4}
-              onValueChange={(itemValue) => setSelectedValue4(itemValue)}
-              style={styles.picker}
-            >
-              {[
-                'JEFFERSON',
-                'ROSSATO',
-                'CARABOTA',
-                'PAZETTE',
-                'JAISSON',
-                'GUILHERME',
-              ].map((value) => (
-                <Picker.Item key={value} label={value} value={value} />
-              ))}
-            </Picker>
-          </PickerContainer>
-          
           <ButtonContainer>
             <LinearGradient
               colors={['#457547', '#002C0B']}
