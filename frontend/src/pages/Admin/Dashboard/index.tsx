@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { View, Text, Button, ActivityIndicator, ScrollView, Dimensions, Alert, Platform, TouchableOpacity } from "react-native";
 import { Picker } from "@react-native-picker/picker";
-import { PieChart, BarChart, LineChart } from "react-native-chart-kit";
+import { PieChart, LineChart, BarChart } from "react-native-chart-kit";
 import RNFS from "react-native-fs";
 import Share from "react-native-share";
 import { request, PERMISSIONS, RESULTS } from "react-native-permissions";
@@ -34,6 +34,17 @@ interface TicketCreator {
     name: string;
     count: number;
 }
+interface ReportedShots {
+    area: string;
+    count: number;
+}
+
+interface ReportedShotsByAreaAndSupporter {
+    area: string;
+    supporter: string;
+    name: string;
+    count: number;
+}
 
 interface DashboardData {
     totalTickets: number;
@@ -41,6 +52,8 @@ interface DashboardData {
     tickets: Ticket[];
     top3Zones: TopZone[];
     ticketCreatorsCount: TicketCreator[];
+    top5ReportedShotsByArea: ReportedShots[];
+    top5ReportedShotsByAreaAndSupporter: ReportedShotsByAreaAndSupporter[];
 }
 
 export default function Dashboard() {
@@ -53,9 +66,18 @@ export default function Dashboard() {
         tickets: [],
         top3Zones: [],
         ticketCreatorsCount: [],
+        top5ReportedShotsByArea: [],
+        top5ReportedShotsByAreaAndSupporter: [],
     });
     const [error, setError] = useState<string | null>(null);
     const [showTableOnly, setShowTableOnly] = useState(false);
+    const isMounted = useRef(true);
+
+    useEffect(() => {
+        return () => {
+            isMounted.current = false;
+        };
+    }, []);
 
     const fetchData = async () => {
         if (!month || !year) return;
@@ -93,21 +115,42 @@ export default function Dashboard() {
                     count: creator[1],
                 }))
                 : [];
+            const top5ReportedShotsByArea = response.top5ReportedShotsByArea
+                ? response.top5ReportedShotsByArea.map((area: any) => ({
+                    area: area[0] || "Desconhecido",
+                    count: isNaN(area[1]) ? 0 : area[1],
+                }))
+                : [];
+            const top5ReportedShotsByAreaAndSupporter = response.top5ReportedShotsByAreaAndSupporter
+                ? response.top5ReportedShotsByAreaAndSupporter.map((item: any) => ({
+                    area: item.area || "Desconhecido",
+                    supporter: item.supporter || "Desconhecido",
+                    name: item.name || "Desconhecido",
+                    count: isNaN(item.count) ? 0 : item.count,
+                }))
+                : [];
 
-
-            setData({
-                totalTickets: response.totalTickets || 0,
-                top10Clients: top10Clients,
-                tickets: tickets,
-                top3Zones: top3Zones,
-                ticketCreatorsCount: ticketCreatorsCount,
-            });
+            if (isMounted.current) {
+                setData({
+                    totalTickets: response.totalTickets || 0,
+                    top10Clients: top10Clients,
+                    tickets: tickets,
+                    top3Zones: top3Zones,
+                    ticketCreatorsCount: ticketCreatorsCount,
+                    top5ReportedShotsByArea: top5ReportedShotsByArea,
+                    top5ReportedShotsByAreaAndSupporter: top5ReportedShotsByAreaAndSupporter,
+                });
+            }
         } catch (err) {
             console.error("Erro ao carregar os dados:", err);
-            setError("Erro ao carregar os dados. Tente novamente.");
-            setData({ totalTickets: 0, top10Clients: [], tickets: [], top3Zones: [], ticketCreatorsCount: [] });
+            if (isMounted.current) {
+                setError("Erro ao carregar os dados. Tente novamente.");
+                setData({ totalTickets: 0, top10Clients: [], tickets: [], top3Zones: [], ticketCreatorsCount: [], top5ReportedShotsByArea: [], top5ReportedShotsByAreaAndSupporter: [] });
+            }
         } finally {
-            setLoading(false);
+            if (isMounted.current) {
+                setLoading(false);
+            }
         }
     };
 
@@ -122,7 +165,9 @@ export default function Dashboard() {
             } else {
                 const result = await request(PERMISSIONS.ANDROID.WRITE_EXTERNAL_STORAGE);
                 if (result !== RESULTS.GRANTED) {
-                    Alert.alert("Permissão Negada", "É necessário permitir o acesso ao armazenamento.");
+                    if (isMounted.current) {
+                        Alert.alert("Permissão Negada", "É necessário permitir o acesso ao armazenamento.");
+                    }
                     return false;
                 }
             }
@@ -148,7 +193,9 @@ export default function Dashboard() {
 
     const exportToCSV = async (tickets: Ticket[]) => {
         if (!tickets || tickets.length === 0) {
-            Alert.alert("Erro", "Nenhum dado disponível para exportação.");
+            if (isMounted.current) {
+                Alert.alert("Erro", "Nenhum dado disponível para exportação.");
+            }
             return;
         }
 
@@ -176,7 +223,9 @@ export default function Dashboard() {
 
             await RNFS.writeFile(path, "\ufeff" + csvContent, "utf8");
 
-            Alert.alert("Sucesso", `Arquivo salvo com sucesso em:\n${path}`);
+            if (isMounted.current) {
+                Alert.alert("Sucesso", `Arquivo salvo com sucesso em:\n${path}`);
+            }
 
             const options = {
                 url: `file://${path}`,
@@ -189,106 +238,145 @@ export default function Dashboard() {
 
         } catch (error) {
             console.error("Erro ao salvar o arquivo:", error);
-            Alert.alert("Erro ao salvar o arquivo", "Não foi possível salvar o CSV.");
+            if (isMounted.current) {
+                Alert.alert("Erro ao salvar o arquivo", "Não foi possível salvar o CSV.");
+            }
         }
     };
 
-    const renderDashboard = () => (
-        <ScrollView contentContainerStyle={styles.dashboardContainer}>
-            <View style={styles.summary}>
-                <View style={styles.card}>
-                    <Text style={styles.cardTitle}>Total de Tickets</Text>
-                    <Text style={styles.cardValue}>{data.totalTickets}</Text>
+    const renderDashboard = () => {
+        return (
+            <ScrollView contentContainerStyle={styles.dashboardContainer}>
+                <View style={styles.summary}>
+                    <View style={styles.card}>
+                        <Text style={styles.cardTitle}>Total de Tickets</Text>
+                        <Text style={styles.cardValue}>{data.totalTickets}</Text>
+                    </View>
                 </View>
-            </View>
 
-            <View style={styles.chartContainer}>
-                <Text style={styles.chartTitle}>Top 10 Clientes</Text>
-                {data.top10Clients.length > 0 ? (
-                    <PieChart
-                        data={data.top10Clients.map((client, index) => ({
-                            name: client.client,
-                            population: isNaN(client.count) ? 0 : client.count,
-                            color: ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0", "#9966FF", "#FF9F40", "#E7E9ED", "#76D7C4", "#F7DC6F", "#CD6155"][index % 10],
-                            legendFontColor: "#7F7F7F",
-                            legendFontSize: 15,
-                        }))}
-                        width={screenWidth - 40}
-                        height={220}
-                        chartConfig={{
-                            backgroundColor: "#ffffff",
-                            backgroundGradientFrom: "#ffffff",
-                            backgroundGradientTo: "#ffffff",
-                            color: (opacity = 1) => `rgba(0, 122, 255, ${opacity})`,
-                            style: { borderRadius: 16 },
-                        }}
-                        accessor={"population"}
-                        backgroundColor={"transparent"}
-                        paddingLeft={"15"}
-                        absolute
-                    />
-                ) : (
-                    <Text style={{ textAlign: "center" }}>Sem dados para o gráfico.</Text>
-                )}
-            </View>
+                <View style={styles.chartContainer}>
+                    <Text style={styles.chartTitle}>Top 10 Clientes</Text>
+                    {data.top10Clients.length > 0 ? (
+                        <PieChart
+                            data={data.top10Clients.map((client, index) => ({
+                                name: client.client,
+                                population: isNaN(client.count) ? 0 : client.count,
+                                color: ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0", "#9966FF", "#FF9F40", "#E7E9ED", "#76D7C4", "#F7DC6F", "#CD6155"][index % 10],
+                                legendFontColor: "#7F7F7F",
+                                legendFontSize: 15,
+                            }))}
+                            width={screenWidth - 40}
+                            height={220}
+                            chartConfig={{
+                                backgroundColor: "#ffffff",
+                                backgroundGradientFrom: "#ffffff",
+                                backgroundGradientTo: "#ffffff",
+                                color: (opacity = 1) => `rgba(0, 122, 255, ${opacity})`,
+                                style: { borderRadius: 16 },
+                            }}
+                            accessor={"population"}
+                            backgroundColor={"transparent"}
+                            paddingLeft={"15"}
+                            absolute
+                        />
+                    ) : (
+                        <Text style={{ textAlign: "center" }}>Sem dados para o gráfico.</Text>
+                    )}
+                </View>
 
-            <View style={styles.chartContainer}>
-                <Text style={styles.chartTitle}>Top 3 Zonas</Text>
-                {data.top3Zones.length > 0 ? (
-                    <BarChart
-                        data={{
-                            labels: data.top3Zones.map(zone => zone.zone),
-                            datasets: [
-                                {
-                                    data: data.top3Zones.map(zone => zone.count),
-                                },
-                            ],
-                        }}
-                        width={screenWidth - 40}
-                        height={220}
-                        chartConfig={{
-                            backgroundColor: "#ffffff",
-                            backgroundGradientFrom: "#ffffff",
-                            backgroundGradientTo: "#ffffff",
-                            color: (opacity = 1) => `rgba(0, 122, 255, ${opacity})`,
-                            style: { borderRadius: 16 },
-                        }}
-                        verticalLabelRotation={30}
-                    />
-                ) : (
-                    <Text style={{ textAlign: "center" }}>Sem dados para o gráfico</Text>
-                )}
-            </View>
+                <View style={styles.chartContainer}>
+                    <Text style={styles.chartTitle}>Top 5 Nomes de Criadores de Tickets</Text>
+                    {data.ticketCreatorsCount.length > 0 ? (
+                        <LineChart
+                            data={{
+                                labels: data.ticketCreatorsCount.map(creator => creator.name),
+                                datasets: [
+                                    {
+                                        data: data.ticketCreatorsCount.map(creator => creator.count),
+                                    },
+                                ],
+                            }}
+                            width={screenWidth - 40}
+                            height={220}
+                            chartConfig={{
+                                backgroundColor: "#ffffff",
+                                backgroundGradientFrom: "#ffffff",
+                                backgroundGradientTo: "#ffffff",
+                                color: (opacity = 1) => `rgba(0, 122, 255, ${opacity})`,
+                                style: { borderRadius: 16 },
+                            }}
+                            bezier
+                        />
+                    ) : (
+                        <Text style={{ textAlign: "center" }}>Dados de Pronto Atendimento ainda não recebidos.</Text>
+                    )}
+                </View>
 
-            <View style={styles.chartContainer}>
-                <Text style={styles.chartTitle}>Top 5 Nomes de Criadores de Tickets</Text>
-                {data.ticketCreatorsCount.length > 0 ? (
-                    <LineChart
-                        data={{
-                            labels: data.ticketCreatorsCount.map(creator => creator.name),
-                            datasets: [
-                                {
-                                    data: data.ticketCreatorsCount.map(creator => creator.count),
-                                },
-                            ],
-                        }}
-                        width={screenWidth - 40}
-                        height={220}
-                        chartConfig={{
-                            backgroundColor: "#ffffff",
-                            backgroundGradientFrom: "#ffffff",
-                            backgroundGradientTo: "#ffffff",
-                            color: (opacity = 1) => `rgba(0, 122, 255, ${opacity})`,
-                            style: { borderRadius: 16 },
-                        }}
-                        bezier
-                    />
-                ) : (
-                    <Text style={{ textAlign: "center" }}>Dados de Pronto Atendimento ainda não recebidos.</Text>
-                )}
-            </View>
-        </ScrollView>
-    );
+                <View style={[styles.chartContainer, { flex: 1, height: 700 }]}>
+                    <Text style={styles.chartTitle}>
+                        Top 5 Disparos Mais Reportados por Área, Cliente e Nome
+                    </Text>
+                    {data.top5ReportedShotsByAreaAndSupporter.length > 0 ? (
+                        <>
+                            <BarChart
+                                data={{
+                                    labels: data.top5ReportedShotsByAreaAndSupporter.map(
+                                        item => `${item.area} - ${item.supporter}`
+                                    ),
+                                    datasets: [
+                                        {
+                                            data: data.top5ReportedShotsByAreaAndSupporter.map(item => item.count),
+                                        },
+                                    ],
+                                }}
+                                width={screenWidth - 40}
+                                height={400}
+                                chartConfig={{
+                                    backgroundColor: "#ffffff",
+                                    backgroundGradientFrom: "#ffffff",
+                                    backgroundGradientTo: "#ffffff",
+                                    color: (opacity = 1) => `rgba(0, 122, 255, ${opacity})`,
+                                    style: { borderRadius: 16, },
+                                }}
+                                verticalLabelRotation={0}
+                                showValuesOnTopOfBars={true}
+                                fromZero={true}
+                                yAxisLabel=""
+                                yAxisSuffix=""
+                            />
+                            {/* Legenda abaixo do gráfico */}
+                            <PieChart
+                                data={data.ticketCreatorsCount.map((creator, index) => ({
+                                    name: `${creator.name}`,
+                                    population: creator.count,
+                                    color: ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0", "#9966FF", "#FF9F40", "#E7E9ED", "#76D7C4", "#F7DC6F", "#CD6155"][index % 10],
+                                    legendFontColor: "#000", // cor da legenda
+                                    legendFontSize: 13, // tamanho da fonte da legenda
+                                }))}
+
+                                width={screenWidth - 40}
+                                height={200}
+                                chartConfig={{
+                                    backgroundColor: "#ffffff",
+                                    backgroundGradientFrom: "#ffffff",
+                                    backgroundGradientTo: "#ffffff",
+                                    color: (opacity = 1) => `rgba(0, 122, 255, ${opacity})`,
+                                    style: { borderRadius: 16 },
+                                }}
+                                accessor={"population"}
+                                backgroundColor={"transparent"}
+                                paddingLeft={"15"}
+                                absolute
+                            />
+
+                        </>
+                    ) : (
+                        <Text style={{ textAlign: "center" }}>Sem dados para o gráfico</Text>
+                    )}
+                </View>
+            </ScrollView>
+        );
+    };
 
     const renderTable = () => (
         <ScrollView nestedScrollEnabled style={{ flex: 1 }}>

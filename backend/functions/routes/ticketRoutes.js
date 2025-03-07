@@ -143,7 +143,7 @@ router.get("/dashboardSummary", async (req, res) => {
       .sort((a, b) => b[1] - a[1])
       .slice(0, 10);
 
-    // Top 3 zonas com mais alarmes
+    // Top 3 zonas de alarme
     const topZones = {};
     tickets.forEach((ticket) => {
       topZones[ticket.zonaAlarme] = (topZones[ticket.zonaAlarme] || 0) + 1;
@@ -152,7 +152,7 @@ router.get("/dashboardSummary", async (req, res) => {
       .sort((a, b) => b[1] - a[1])
       .slice(0, 3);
 
-    // Adiciona o nome da pessoa que criou o ticket
+    // Top 5 criadores de tickets
     const ticketCreatorsCount = {};
     tickets.forEach((ticket) => {
       ticketCreatorsCount[ticket.name] = (ticketCreatorsCount[ticket.name] || 0) + 1;
@@ -162,6 +162,19 @@ router.get("/dashboardSummary", async (req, res) => {
       .sort((a, b) => b[1] - a[1])
       .slice(0, 5);
 
+    // Top 5 disparos mais reportados por área, apoiador e nome da pessoa
+    const reportedShotsByAreaAndSupporter = {};
+    tickets.forEach((ticket) => {
+      const key = `${ticket.zonaAlarme}-${ticket.stCliente}-${ticket.name}`;
+      reportedShotsByAreaAndSupporter[key] = (reportedShotsByAreaAndSupporter[key] || 0) + 1;
+    });
+    const top5ReportedShotsByAreaAndSupporter = Object.entries(reportedShotsByAreaAndSupporter)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 5)
+      .map(([key, count]) => {
+        const [area, supporter, name] = key.split("-");
+        return { area, supporter, name, count };
+      });
 
     res.status(200).json({
       totalTickets,
@@ -169,6 +182,7 @@ router.get("/dashboardSummary", async (req, res) => {
       top3Zones,
       tickets,
       top5TicketCreators,
+      top5ReportedShotsByAreaAndSupporter,
     });
 
   } catch (error) {

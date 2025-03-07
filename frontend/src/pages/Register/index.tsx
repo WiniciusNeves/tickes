@@ -9,17 +9,12 @@ import { createTicket } from '../../api/ticketsService';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const areaToPeopleMap = {
-  'APOIO 1 DIA': ['NaN'],
-  'APOIO 1 NOITE': ['NaN'],
-  'APOIO 2 DIA': ['PAZETTE', 'DAVID'],
-  'APOIO 2 NOITE': ['PAZETTE', 'DAVID'],
-  'APOIO 3 DIA': ['JEFFERSON', 'JAISSON', 'GUILHERME', 'ADILSON'],
-  'APOIO 3 NOITE': ['JEFFERSON', 'JAISSON', 'GUILHERME', 'ADILSON'],
-  'APOIO 4 DIA': ['ROSSATO', 'VITOR', 'PATRICK'],
-  'APOIO 4 NOITE': ['ROSSATO', 'VITOR', 'PATRICK'],
-  'APOIO 5 DIA': ['MARCOS', 'CLAIRTON', 'ALISSON'],
-  'APOIO 5 NOITE': ['MARCOS', 'CLAIRTON', 'ALISSON'],
-  'APOIO 10 DIA': ['NaN'],
+  'AREA 1': ['TREINAMENTO'],
+  'AREA 2': ['PAZETTE', 'DAVID', 'ALISSON', 'JONATA'],
+  'AREA 3': ['ADILSON', 'JEFFERSON', 'GUILHERME', 'JAISSON'],
+  'AREA 4': ['ROSSATO', 'VITOR', 'PATRIC', 'RODRIGUES'],
+  'AREA 5': ['MARCOS', 'DAVID', 'CLAIRTON', 'JONATAN'],
+  'AREA 10': ['RODRIGO ROSA', 'JEFERSON', 'GABRIEL', 'MARCELO', 'GIOVANE', 'FELIPE', 'RODRIGO BRUM'],
 };
 
 export default function Register() {
