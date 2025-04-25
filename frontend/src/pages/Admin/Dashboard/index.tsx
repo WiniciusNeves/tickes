@@ -249,13 +249,13 @@ export default function Dashboard() {
             <ScrollView contentContainerStyle={styles.dashboardContainer}>
                 <View style={styles.summary}>
                     <View style={styles.card}>
-                        <Text style={styles.cardTitle}>Total de Tickets</Text>
+                        <Text style={styles.cardTitle}>Total de ocorrências</Text>
                         <Text style={styles.cardValue}>{data.totalTickets}</Text>
                     </View>
                 </View>
 
                 <View style={styles.chartContainer}>
-                    <Text style={styles.chartTitle}>Top 10 Clientes</Text>
+                    <Text style={styles.chartTitle}>Clientes com mais ocorrências reportadas</Text>
                     {data.top10Clients.length > 0 ? (
                         <PieChart
                             data={data.top10Clients.map((client, index) => ({
@@ -284,37 +284,11 @@ export default function Dashboard() {
                     )}
                 </View>
 
-                <View style={styles.chartContainer}>
-                    <Text style={styles.chartTitle}>Top 5 Nomes de Criadores de Tickets</Text>
-                    {data.ticketCreatorsCount.length > 0 ? (
-                        <LineChart
-                            data={{
-                                labels: data.ticketCreatorsCount.map(creator => creator.name),
-                                datasets: [
-                                    {
-                                        data: data.ticketCreatorsCount.map(creator => creator.count),
-                                    },
-                                ],
-                            }}
-                            width={screenWidth - 40}
-                            height={220}
-                            chartConfig={{
-                                backgroundColor: "#ffffff",
-                                backgroundGradientFrom: "#ffffff",
-                                backgroundGradientTo: "#ffffff",
-                                color: (opacity = 1) => `rgba(0, 122, 255, ${opacity})`,
-                                style: { borderRadius: 16 },
-                            }}
-                            bezier
-                        />
-                    ) : (
-                        <Text style={{ textAlign: "center" }}>Dados de Pronto Atendimento ainda não recebidos.</Text>
-                    )}
-                </View>
 
-                <View style={[styles.chartContainer, { flex: 1, height: 700 }]}>
+
+                <View style={[styles.chartContainer, { flex: 1, height: 800 }]}>
                     <Text style={styles.chartTitle}>
-                        Top 5 Disparos Mais Reportados por Área, Cliente e Nome
+                        Zona no cliente com mais reportes/
                     </Text>
                     {data.top5ReportedShotsByAreaAndSupporter.length > 0 ? (
                         <>
@@ -343,8 +317,10 @@ export default function Dashboard() {
                                 fromZero={true}
                                 yAxisLabel=""
                                 yAxisSuffix=""
-                            />
-                            {/* Legenda abaixo do gráfico */}
+                            />`
+                            <Text style={styles.chartTitle}>
+                                P.As que mais reportam ocorrência
+                            </Text>`
                             <PieChart
                                 data={data.ticketCreatorsCount.map((creator, index) => ({
                                     name: `${creator.name}`,
@@ -397,7 +373,7 @@ export default function Dashboard() {
                 >
                     {["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
                         .map((monthName, index) => (
-                            <Picker.Item key={index} label={monthName} value={(index + 1).toString()} style={{ color: "#fff" }} />
+                            <Picker.Item key={index} label={monthName} value={(index + 1).toString()} />
                         ))}
                 </Picker>
 
@@ -409,7 +385,7 @@ export default function Dashboard() {
                 >
                     {[...Array(5).keys()].map((i) => {
                         const yearOption = (new Date().getFullYear() - i).toString();
-                        return <Picker.Item key={i} label={yearOption} value={yearOption} style={{ color: "#fff" }} />;
+                        return <Picker.Item key={i} label={yearOption} value={yearOption} />;
                     })}
                 </Picker>
             </View>

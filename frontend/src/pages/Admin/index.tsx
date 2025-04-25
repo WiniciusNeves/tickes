@@ -18,14 +18,20 @@ export default function Admin() {
                 </TouchableOpacity>
                 <TouchableOpacity
                     onPress={() => {
-                        auth()
-                            .signOut()
-                            .then(() => {
-                                navigation.navigate("Home");
-                            })
-                            .catch((error) => {
-                                console.log(error);
-                            });
+                        const currentUser = auth().currentUser;
+                        if (currentUser) {
+                            auth()
+                                .signOut()
+                                .then(() => {
+                                    navigation.navigate("Home");
+                                })
+                                .catch((error) => {
+                                    console.log(error);
+                                });
+                        } else {
+                            console.log("Nenhum usuário autenticado.");
+                            navigation.navigate("Home"); // Redireciona para a Home
+                        }
                     }}
                     style={{ marginTop: 20, padding: 10, backgroundColor: "#6C7B8B", borderRadius: 5, width: "50%", position: "relative", alignSelf: "center" }}
                 >

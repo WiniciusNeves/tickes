@@ -115,7 +115,7 @@ export default function Auth() {
             </Button>
           </LinearGradient>
 
-          <Button onPress={() => navigation.goBack()} style={styles.backButton}>
+          <Button onPress={() => navigation.goBack()} style={{ ...styles.backButton }}>
             <FontAwesome5 name="arrow-left" size={20} color="#fff" style={styles.icon} />
             <ButtonText>Voltar</ButtonText>
           </Button>
@@ -152,5 +152,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#000',
     marginTop: 16,
     width: '40%',
+
   },
 });
